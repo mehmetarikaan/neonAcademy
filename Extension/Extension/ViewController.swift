@@ -42,8 +42,32 @@ class ViewController: UIViewController {
 
         let days = Date.daysBetween(start: start, end: end)
         print(days)
+        
+        //MARK: - For UIViewController, UILabel, UIImage, UIImageView and UIButton, They added a function to easily change the background color, text, and image respectively, making it much more convenient for the kingdom's designers and developers to create beautiful and engaging user interfaces.
+        
+        //MARK: - UIViewController
 
-
+        let backColor = UIViewController()
+        backColor.changeBackgroundColor(color: .blue)
+        
+        //MARK: - UILabel
+        
+        let label = UILabel()
+        label.changeText(text: "Mehmet Arıkan")
+        
+        //MARK: - UIImage
+        
+        // crash
+        
+        //MARK: - UIImageView
+        
+        let imageView = UIImageView()
+        imageView.changeImageView(image: UIImage(named: "Mehmet"))
+        
+        //MARK: - UIButton
+        let button = UIButton()
+        button.changeButton(backgroundColor: .red)
+        
     }
 }
 

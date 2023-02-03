@@ -17,6 +17,7 @@
 		B774B061298D0BAA002189AD /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B060298D0BAA002189AD /* ExtensionInt.swift */; };
 		B774B063298D1C35002189AD /* ExtensionBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B062298D1C35002189AD /* ExtensionBool.swift */; };
 		B774B065298D2044002189AD /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B064298D2044002189AD /* ExtensionDate.swift */; };
+		B774B067298D264B002189AD /* ExtensionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B066298D264B002189AD /* ExtensionUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B774B060298D0BAA002189AD /* ExtensionInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionInt.swift; sourceTree = "<group>"; };
 		B774B062298D1C35002189AD /* ExtensionBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionBool.swift; sourceTree = "<group>"; };
 		B774B064298D2044002189AD /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
+		B774B066298D264B002189AD /* ExtensionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				B774B060298D0BAA002189AD /* ExtensionInt.swift */,
 				B774B062298D1C35002189AD /* ExtensionBool.swift */,
 				B774B064298D2044002189AD /* ExtensionDate.swift */,
+				B774B066298D264B002189AD /* ExtensionUI.swift */,
 			);
 			name = Tasks;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				B774B063298D1C35002189AD /* ExtensionBool.swift in Sources */,
 				B774B061298D0BAA002189AD /* ExtensionInt.swift in Sources */,
 				B774B04A298CFF3F002189AD /* SceneDelegate.swift in Sources */,
+				B774B067298D264B002189AD /* ExtensionUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
