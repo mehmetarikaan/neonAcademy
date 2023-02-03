@@ -26,26 +26,26 @@ class ContactInformation{
 }
 
 var teamMember = [
-    NeonAcademyMember(fullName: "Mehmet Arıkan", title: "iOS Developer", horoscope: "Boğa", memberLevel: "A1", homeTown: "Malatya", age: 23, contactInformation: ContactInformation(phoneNumber: 5070554436, email: "mehmet@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
+    NeonAcademyMember(fullName: "Mehmet Arıkan", title: "iOS Developer", horoscope: "Boğa", memberLevel: "A1", homeTown: "Malatya", age: 23, contactInformation: ContactInformation(phoneNumber: 5070554436, email: "mehmet@neonapps.co"), team: "iOS Development Team", motivationLevel: 6),
     NeonAcademyMember(fullName: "Oğuzhan Akın", title: "iOS Developer", horoscope: "İkizler", memberLevel: "A1", homeTown: "Ordu", age: 26, contactInformation: ContactInformation(phoneNumber: 5318610629, email: "oguzhan@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Ali Beyaz", title: "iOS Developer", horoscope: "İkizler", memberLevel: "A1", homeTown: "Ordu", age: 27, contactInformation: ContactInformation(phoneNumber: 5322583505, email: "ali@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Anıl Sezer", title: "iOS Developer", horoscope: "Yengeç", memberLevel: "A1", homeTown: "Giresun", age: 24, contactInformation: ContactInformation(phoneNumber: 5362929275, email: "anil@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Seyhun Koçak", title: "iOS Developer", horoscope: "İkizler", memberLevel: "A1", homeTown: "Manisa", age: 27, contactInformation: ContactInformation(phoneNumber: 5056695330, email: "seyhun@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Eymen Varilci", title: "iOS Developer", horoscope: "Balık", memberLevel: "A1", homeTown: "Ordu", age: 26, contactInformation: ContactInformation(phoneNumber: 5344098326, email: "eymen@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
+    NeonAcademyMember(fullName: "Ali Beyaz", title: "iOS Developer", horoscope: "İkizler", memberLevel: "A1", homeTown: "Ordu", age: 27, contactInformation: ContactInformation(phoneNumber: 5322583505, email: "ali@neonapps.co"), team: "iOS Development Team", motivationLevel: 3),
+    NeonAcademyMember(fullName: "Anıl Sezer", title: "iOS Developer", horoscope: "Yengeç", memberLevel: "A1", homeTown: "Giresun", age: 24, contactInformation: ContactInformation(phoneNumber: 5362929275, email: "anil@neonapps.co"), team: "iOS Development Team", motivationLevel: 5),
+    NeonAcademyMember(fullName: "Seyhun Koçak", title: "iOS Developer", horoscope: "İkizler", memberLevel: "A1", homeTown: "Manisa", age: 27, contactInformation: ContactInformation(phoneNumber: 5056695330, email: "seyhun@neonapps.co"), team: "iOS Development Team", motivationLevel: 4),
+    NeonAcademyMember(fullName: "Eymen Varilci", title: "iOS Developer", horoscope: "Balık", memberLevel: "A1", homeTown: "Ordu", age: 26, contactInformation: ContactInformation(phoneNumber: 5344098326, email: "eymen@neonapps.co"), team: "iOS Development Team", motivationLevel: 3),
     NeonAcademyMember(fullName: "Oğuzhan Satılmış", title: "Android Developer", horoscope: "İkizler", memberLevel: "A1", homeTown: "Tekirdağ", age: 25, contactInformation: ContactInformation(phoneNumber: 5426791619, email: "oguzhansatilmis@neonapps.co"), team: "Android Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Atilla Eren", title: "Android Developer", horoscope: "Aslan", memberLevel: "A1", homeTown: "Malatya", age: 28, contactInformation: ContactInformation(phoneNumber: 5459707600, email: "atilla@neonapps.co"), team: "Android Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Nesrin Bozan", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "A1", homeTown: "Adıyaman", age: 24, contactInformation: ContactInformation(phoneNumber: 5462093402, email: "nesrin@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Bilal Yalçın", title: "iOS Developer", horoscope: "Yengeç", memberLevel: "A1", homeTown: "istanbul", age: 27, contactInformation: ContactInformation(phoneNumber: 5362063591, email: "bilal@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Ege Ertan", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "B3", homeTown: "istanbul", age: 23, contactInformation: ContactInformation(phoneNumber: 5367426453, email: "ege@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Mert Çetin", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "B3", homeTown: "istanbul", age: 22, contactInformation: ContactInformation(phoneNumber: 5394593496, email: "mert@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Burak Çiçek", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "A3", homeTown: "Hatay", age: 28, contactInformation: ContactInformation(phoneNumber: 5314344077, email: "burakcicek@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Alper Erden", title: "iOS Developer", horoscope: "Aslan", memberLevel: "A3", homeTown: "Trabzon", age: 24, contactInformation: ContactInformation(phoneNumber: 5372837056, email: "alper@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Berk Ceylan", title: "iOS Developer", horoscope: "Akrep", memberLevel: "A2", homeTown: "Sivas", age: 25, contactInformation: ContactInformation(phoneNumber: 5308843498, email: "berk@neonapps.co"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Fatih Kara", title: "iOS Developer", horoscope: "Akrep", memberLevel: "A1", homeTown: "Ankara", age: 24, contactInformation: ContactInformation(phoneNumber: 5318610629, email: "fatih@gmail.com"), team: "iOS Development Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Karen Aksoy", title: "UI-UX Designer", horoscope: "Balık", memberLevel: "B1", homeTown: "Trabzon", age: 23, contactInformation: ContactInformation(phoneNumber: 5302868996, email: "karen@neonapps.com"), team: "UI/UX Design Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Aslı Katırcı", title: "UI Designer", horoscope: "Gemini", memberLevel: "A1", homeTown: "Bolu", age: 21, contactInformation: ContactInformation(phoneNumber: 5399134436, email: "asli@neonapps.com"), team: "UI/UX Design Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Melis Göral", title: "UI Designer", horoscope: "Boğa", memberLevel: "A1", homeTown: "istanbul", age: 26, contactInformation: ContactInformation(phoneNumber: 5426434552, email: "melis@neonapps.com"), team: "UI/UX Design Team", motivationLevel: nil),
-    NeonAcademyMember(fullName: "Irfan Ortaeri", title: "UI Designer", horoscope: "Terazi", memberLevel: "A1", homeTown: "istanbul", age: 24, contactInformation: ContactInformation(phoneNumber: 5426434552, email: "irfan@neonapps.com"), team: "UI/UX Design Team", motivationLevel: nil),
+    NeonAcademyMember(fullName: "Atilla Eren", title: "Android Developer", horoscope: "Aslan", memberLevel: "A1", homeTown: "Malatya", age: 28, contactInformation: ContactInformation(phoneNumber: 5459707600, email: "atilla@neonapps.co"), team: "Android Development Team", motivationLevel: 1),
+    NeonAcademyMember(fullName: "Nesrin Bozan", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "A1", homeTown: "Adıyaman", age: 24, contactInformation: ContactInformation(phoneNumber: 5462093402, email: "nesrin@neonapps.co"), team: "iOS Development Team", motivationLevel: 2),
+    NeonAcademyMember(fullName: "Bilal Yalçın", title: "iOS Developer", horoscope: "Yengeç", memberLevel: "A1", homeTown: "istanbul", age: 27, contactInformation: ContactInformation(phoneNumber: 5362063591, email: "bilal@neonapps.co"), team: "iOS Development Team", motivationLevel: 6),
+    NeonAcademyMember(fullName: "Ege Ertan", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "B3", homeTown: "istanbul", age: 23, contactInformation: ContactInformation(phoneNumber: 5367426453, email: "ege@neonapps.co"), team: "iOS Development Team", motivationLevel: 7),
+    NeonAcademyMember(fullName: "Mert Çetin", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "B3", homeTown: "istanbul", age: 22, contactInformation: ContactInformation(phoneNumber: 5394593496, email: "mert@neonapps.co"), team: "iOS Development Team", motivationLevel: 8),
+    NeonAcademyMember(fullName: "Burak Çiçek", title: "iOS Developer", horoscope: "Oğlak", memberLevel: "A3", homeTown: "Hatay", age: 28, contactInformation: ContactInformation(phoneNumber: 5314344077, email: "burakcicek@neonapps.co"), team: "iOS Development Team", motivationLevel: 9),
+    NeonAcademyMember(fullName: "Alper Erden", title: "iOS Developer", horoscope: "Aslan", memberLevel: "A3", homeTown: "Trabzon", age: 24, contactInformation: ContactInformation(phoneNumber: 5372837056, email: "alper@neonapps.co"), team: "iOS Development Team", motivationLevel: 10),
+    NeonAcademyMember(fullName: "Berk Ceylan", title: "iOS Developer", horoscope: "Akrep", memberLevel: "A2", homeTown: "Sivas", age: 25, contactInformation: ContactInformation(phoneNumber: 5308843498, email: "berk@neonapps.co"), team: "iOS Development Team", motivationLevel: 3),
+    NeonAcademyMember(fullName: "Fatih Kara", title: "iOS Developer", horoscope: "Akrep", memberLevel: "A1", homeTown: "Ankara", age: 24, contactInformation: ContactInformation(phoneNumber: 5318610629, email: "fatih@gmail.com"), team: "iOS Development Team", motivationLevel: 9),
+    NeonAcademyMember(fullName: "Karen Aksoy", title: "UI-UX Designer", horoscope: "Balık", memberLevel: "B1", homeTown: "Trabzon", age: 23, contactInformation: ContactInformation(phoneNumber: 5302868996, email: "karen@neonapps.com"), team: "UI/UX Design Team", motivationLevel: 10),
+    NeonAcademyMember(fullName: "Aslı Katırcı", title: "UI Designer", horoscope: "Gemini", memberLevel: "A1", homeTown: "Bolu", age: 21, contactInformation: ContactInformation(phoneNumber: 5399134436, email: "asli@neonapps.com"), team: "UI/UX Design Team", motivationLevel: 2),
+    NeonAcademyMember(fullName: "Melis Göral", title: "UI Designer", horoscope: "Boğa", memberLevel: "A1", homeTown: "istanbul", age: 26, contactInformation: ContactInformation(phoneNumber: 5426434552, email: "melis@neonapps.com"), team: "UI/UX Design Team", motivationLevel: 0),
+    NeonAcademyMember(fullName: "Irfan Ortaeri", title: "UI Designer", horoscope: "Terazi", memberLevel: "A1", homeTown: "istanbul", age: 24, contactInformation: ContactInformation(phoneNumber: 5426434552, email: "irfan@neonapps.com"), team: "UI/UX Design Team", motivationLevel: 0),
     //    NeonAcademyMember(fullName: "Alp Günay", title: "Head of Product", horoscope: "Yay", memberLevel: "D1", homeTown: "Ankara", age: 23, contactInformation: ContactInformation(phoneNumber: 5458411599, email: "alp@neonapps.com")),
     NeonAcademyMember(fullName: "Asu Pınar Aksu", title: "Designer", horoscope: "Yengeç", memberLevel: "A1", homeTown: "istanbul", age: 22, contactInformation: ContactInformation(phoneNumber: 5355768021, email: "asu@neonapps.co"), team: "UI/UX Design Team", motivationLevel: nil),
     NeonAcademyMember(fullName: "Damla Özer", title: "Designer", horoscope: "Aslan", memberLevel: "A1", homeTown: "istanbul", age: 30, contactInformation: ContactInformation(phoneNumber: 5533652311, email: "damla@neonapps.co"), team: "UI/UX Design Team", motivationLevel: nil),
@@ -507,12 +507,77 @@ filterTeamAge(team: .Design, age: 24)
 print("********************************************************* UNWRAPPING TASK ****************************************************************************")
 
 
+//func increaseMotivation(update: Int, member: NeonAcademyMember){
+//    if let newUpdate = member.motivationLevel{
+//        print("Eşit")
+//    } else {
+//        print(member.motivationLevel)
+//    }
+//   }
+//
+//for new in teamMember{
+//    increaseMotivation(update: 3, member: new)
+//}
+
+
+
 print("**************************************************************************************************************************************")
 print("Create a function that prints out a message based on the member's motivation level. For example, if the motivation level is nil, the function should print out 'This member has no motivation level set' and if the motivation level is greater than 5, the function should print out 'This member is highly motivated'. ( You should use guard let for this task)")
 //MARK: - Create a function that prints out a message based on the member's motivation level. For example, if the motivation level is nil, the function should print out "This member has no motivation level set" and if the motivation level is greater than 5, the function should print out "This member is highly motivated". ( You should use guard let for this task)
 
 
-func increaseMotivation(uptadeLevel: Int){
-    //if let (teamMember.filter({$0.motivationLevel == nil}))
-        // if lete bak
-   }
+func MotivationLevelCheck(memberIndex: Int){
+    guard let memberMotivation = teamMember[memberIndex].motivationLevel else {
+        print("This member has no motivation level set")
+        return
+    }
+    print("This member is highly motivated. \(memberMotivation)")
+}
+
+MotivationLevelCheck(memberIndex: 0)
+
+
+print("**************************************************************************************************************************************")
+print("Create a function that takes a member's motivation level as an input and returns a string indicating whether the member is highly motivated, moderately motivated, or not motivated at all.")
+//MARK: - Create a function that takes a member's motivation level as an input and returns a string indicating whether the member is highly motivated, moderately motivated, or not motivated at all.
+
+func MotivatedMode(memberIndex: Int){
+ var newLevel = (teamMember[memberIndex].motivationLevel)!
+    if newLevel == nil {
+        print("This is deaath.")
+    } else if newLevel < 3 {
+        print("Not motivates")
+    } else if newLevel > 3{
+        print("Highly Motivated")
+    }
+}
+
+MotivatedMode(memberIndex: 0)
+
+
+print("**************************************************************************************************************************************")
+print("Create a function that takes a member and returns the member's motivation level if it is not nil, otherwise it returns 0. ( You should use nil coalescing for this task)")
+//MARK: - Create a function that takes a member and returns the member's motivation level if it is not nil, otherwise it returns 0. ( You should use nil coalescing for this task)
+
+func MotivatedModeNilCheck(memberIndex: Int){
+ var newLevel = (teamMember[memberIndex].motivationLevel) ?? 0
+    print(newLevel)
+}
+MotivatedModeNilCheck(memberIndex: 0)
+MotivatedModeNilCheck(memberIndex: 1)
+
+print("**************************************************************************************************************************************")
+print("Create a function that takes a member and a target motivation level as inputs, and returns true if the member's current motivation level is greater than or equal to the target level, or false otherwise. ( You should use if let for this task)")
+//MARK: - Create a function that takes a member and a target motivation level as inputs, and returns true if the member's current motivation level is greater than or equal to the target level, or false otherwise. ( You should use iv let for this task)
+
+func currentGoalMotivation(memberIndex: Int, goalMotivation: Int) {
+    if let motivationlevel = teamMember[memberIndex].motivationLevel {
+        if motivationlevel >= goalMotivation {
+            print(true)
+        } else {
+            print(false)
+        }
+    }
+}
+
+currentGoalMotivation(memberIndex: 0, goalMotivation: 7)
