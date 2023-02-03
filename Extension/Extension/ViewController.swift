@@ -21,6 +21,10 @@ class ViewController: UIViewController {
         let numberPrime = 7
         print("Int Task: \(numberPrime.prime(number: numberPrime))")
         
+        //MARK: - The Bool extension was not left behind, they added a function that could easily invert a boolean value, allowing the citizens to quickly switch between true and false, making their lives more efficient.
+        
+        var mehmet = true
+        print("Bool Task: \(mehmet.reverse())")
     }
 }
 
