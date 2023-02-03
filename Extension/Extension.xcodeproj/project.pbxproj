@@ -13,6 +13,7 @@
 		B774B04F298CFF3F002189AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B774B04D298CFF3F002189AD /* Main.storyboard */; };
 		B774B051298CFF41002189AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B774B050298CFF41002189AD /* Assets.xcassets */; };
 		B774B054298CFF41002189AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B774B052298CFF41002189AD /* LaunchScreen.storyboard */; };
+		B774B05F298D08F3002189AD /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B05E298D08F3002189AD /* ExtensionString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B774B050298CFF41002189AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B774B053298CFF41002189AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B774B055298CFF41002189AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B774B05E298D08F3002189AD /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		B774B046298CFF3F002189AD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B774B05D298D088B002189AD /* Tasks */,
+				B774B05C298D087A002189AD /* Screens */,
+				B774B05B298D0874002189AD /* Core */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B774B05B298D0874002189AD /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				B774B047298CFF3F002189AD /* AppDelegate.swift */,
 				B774B049298CFF3F002189AD /* SceneDelegate.swift */,
-				B774B04B298CFF3F002189AD /* ViewController.swift */,
 				B774B04D298CFF3F002189AD /* Main.storyboard */,
 				B774B050298CFF41002189AD /* Assets.xcassets */,
 				B774B052298CFF41002189AD /* LaunchScreen.storyboard */,
 				B774B055298CFF41002189AD /* Info.plist */,
 			);
-			path = Extension;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B774B05C298D087A002189AD /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B774B04B298CFF3F002189AD /* ViewController.swift */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		B774B05D298D088B002189AD /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				B774B05E298D08F3002189AD /* ExtensionString.swift */,
+			);
+			name = Tasks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B774B04C298CFF3F002189AD /* ViewController.swift in Sources */,
+				B774B05F298D08F3002189AD /* ExtensionString.swift in Sources */,
 				B774B048298CFF3F002189AD /* AppDelegate.swift in Sources */,
 				B774B04A298CFF3F002189AD /* SceneDelegate.swift in Sources */,
 			);
@@ -289,7 +317,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y37UHY4HLZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Extension/Info.plist;
+				INFOPLIST_FILE = Extension/Core/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y37UHY4HLZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Extension/Info.plist;
+				INFOPLIST_FILE = Extension/Core/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
