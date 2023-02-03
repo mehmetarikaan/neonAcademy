@@ -16,6 +16,7 @@
 		B774B05F298D08F3002189AD /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B05E298D08F3002189AD /* ExtensionString.swift */; };
 		B774B061298D0BAA002189AD /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B060298D0BAA002189AD /* ExtensionInt.swift */; };
 		B774B063298D1C35002189AD /* ExtensionBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B062298D1C35002189AD /* ExtensionBool.swift */; };
+		B774B065298D2044002189AD /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B064298D2044002189AD /* ExtensionDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B774B05E298D08F3002189AD /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		B774B060298D0BAA002189AD /* ExtensionInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionInt.swift; sourceTree = "<group>"; };
 		B774B062298D1C35002189AD /* ExtensionBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionBool.swift; sourceTree = "<group>"; };
+		B774B064298D2044002189AD /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				B774B05E298D08F3002189AD /* ExtensionString.swift */,
 				B774B060298D0BAA002189AD /* ExtensionInt.swift */,
 				B774B062298D1C35002189AD /* ExtensionBool.swift */,
+				B774B064298D2044002189AD /* ExtensionDate.swift */,
 			);
 			name = Tasks;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				B774B04C298CFF3F002189AD /* ViewController.swift in Sources */,
 				B774B05F298D08F3002189AD /* ExtensionString.swift in Sources */,
+				B774B065298D2044002189AD /* ExtensionDate.swift in Sources */,
 				B774B048298CFF3F002189AD /* AppDelegate.swift in Sources */,
 				B774B063298D1C35002189AD /* ExtensionBool.swift in Sources */,
 				B774B061298D0BAA002189AD /* ExtensionInt.swift in Sources */,

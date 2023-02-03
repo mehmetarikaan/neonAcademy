@@ -25,6 +25,25 @@ class ViewController: UIViewController {
         
         var mehmet = true
         print("Bool Task: \(mehmet.reverse())")
+        
+        //MARK: - The developers continued on their journey, creating an extension for Date that would allow the citizens to calculate the number of days between two dates, making it much easier for them to plan events and keep track of important dates.
+        
+        //ChatGPT
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+
+        let startString = "08/05/1999"
+        let endString = "12/06/1999"
+
+        guard let start = formatter.date(from: startString), let end = formatter.date(from: endString) else {
+            print("Couldn't parse dates")
+            return
+        }
+
+        let days = Date.daysBetween(start: start, end: end)
+        print(days)
+
+
     }
 }
 
