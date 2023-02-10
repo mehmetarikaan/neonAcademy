@@ -5,6 +5,8 @@
 //  Created by Mehmet Arıkan on 3.02.2023.
 //
 
+//MARK: - Eksik, tamamlanacak. 
+
 import UIKit
 
 class ViewController: UIViewController {
