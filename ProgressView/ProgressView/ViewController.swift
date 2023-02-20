@@ -33,10 +33,15 @@ class ViewController: UIViewController {
     }
     
     @objc func buttonPressed(_ sender: UIButton){
-        progressView.progress += 0.1
-        if progressView.progress == 1.0 {
+        
+        if progressView.progress >= 1.0 {
+            progressView.progress -= 0.1
             progressView.progress = 0
+           
+        } else {
+            progressView.progress += 0.1
         }
+        
     }
     
     func setupUI(){
