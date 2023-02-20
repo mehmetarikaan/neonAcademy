@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         textField.font = .boldSystemFont(ofSize: 20)
         textField.placeholder = "Enter Name-Surname"
         textField.backgroundColor = .white
+        textField.tintColor = .black
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.red.cgColor
         textField.layer.cornerRadius = 30
@@ -29,6 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         textField.font = .italicSystemFont(ofSize: 20)
         textField.placeholder = "Enter Email"
         textField.backgroundColor = .white
+        textField.tintColor = .black
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.blue.cgColor
         textField.layer.cornerRadius = 30
@@ -40,6 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         textField.textColor = .green
         textField.font = .boldSystemFont(ofSize: 20)
         textField.placeholder = "Enter Phone Number"
+        textField.tintColor = .black
         textField.backgroundColor = .white
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.green.cgColor
@@ -64,6 +67,19 @@ class ViewController: UIViewController, UITextFieldDelegate{
             let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
             return prospectiveText.count <= 10
         }
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+//        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+//        if !emailTest.evaluate(with: emailTextField.text) {
+//            let errorMessage = "Invalid email format"
+//            // Show error message to the user, for example using an alert
+//            let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alert.addAction(okAction)
+//            present(alert, animated: true, completion: nil)
+//            return self
+//        }
+//    }
     func textFieldDidEndEditing(_ emailTextField: UITextField) {
             let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
             let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
