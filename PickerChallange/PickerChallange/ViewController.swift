@@ -5,6 +5,9 @@
 //  Created by Mehmet Arıkan on 15.02.2023.
 //
 
+
+// font pickeri ilk sayfadaki labela ata
+
 import UIKit
 import SnapKit
 

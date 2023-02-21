@@ -5,6 +5,8 @@
 //  Created by Mehmet Arıkan on 13.02.2023.
 //
 
+// Klavye geçişi
+// phone number sınır koy
 
 import UIKit
 import SnapKit

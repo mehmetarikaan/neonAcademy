@@ -5,6 +5,8 @@
 //  Created by Mehmet Arıkan on 14.02.2023.
 //
 
+// Ekle image vs 
+
 //MARK: - FATAL
 import UIKit
 import SnapKit

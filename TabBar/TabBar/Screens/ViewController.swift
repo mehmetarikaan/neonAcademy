@@ -5,6 +5,7 @@
 //  Created by Mehmet Arıkan on 15.02.2023.
 //
 
+
 import UIKit
 class ViewController: UITabBarController, UITabBarControllerDelegate {
     
@@ -38,8 +39,15 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         
         tabThree.tabBarItem = tabTwoBarItem3
         
+        // Create Tab For
+        let tabFor = ViewControllerHome()
+        let tabForBarItem4 = UITabBarItem(title: "Tab 4", image: UIImage(systemName: "trash.circle"), selectedImage: UIImage(systemName: "trash.circle.fill"))
         
-        self.viewControllers = [tabOne, tabTwo, tabThree]
+        tabFor.tabBarItem = tabForBarItem4
+        
+        tabBar.backgroundColor =  UIColor(red: 0, green: 0, blue: 0.300, alpha: 0.8)
+        tabBar.layer.cornerRadius = 20
+        self.viewControllers = [tabOne, tabTwo, tabThree, tabFor]
     }
     
     // UITabBarControllerDelegate method

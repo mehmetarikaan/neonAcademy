@@ -5,7 +5,9 @@
 //  Created by Mehmet Arıkan on 13.02.2023.
 //
 
-//MARK: - FATAL 
+//MARK: - FATAL
+
+//     Ejdarha ekle
 import UIKit
 import SnapKit
 
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         view.addSubview(firstSlider)
         
         firstSlider.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(60)
+            make.top.equalToSuperview().offset(100)
             make.right.equalTo(-40)
             make.left.equalTo(40)
         }

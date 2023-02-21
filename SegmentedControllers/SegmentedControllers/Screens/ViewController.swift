@@ -5,6 +5,8 @@
 //  Created by Mehmet Arıkan on 14.02.2023.
 //
 
+// dönüşte ekle
+
 import UIKit
 import SnapKit
 
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
         view.addSubview(segmentControll)
         
         segmentControll.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(80)
             make.height.equalTo(100)
             make.width.equalToSuperview()
             make.centerY.equalTo(0)

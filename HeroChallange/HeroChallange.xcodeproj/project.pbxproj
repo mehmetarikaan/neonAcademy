@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B77ABA5E29A4A26E00356E84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA5D29A4A26E00356E84 /* AppDelegate.swift */; };
+		B77ABA6029A4A26E00356E84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA5F29A4A26E00356E84 /* SceneDelegate.swift */; };
+		B77ABA6229A4A26E00356E84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA6129A4A26E00356E84 /* ViewController.swift */; };
+		B77ABA6529A4A26E00356E84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77ABA6329A4A26E00356E84 /* Main.storyboard */; };
+		B77ABA6729A4A26F00356E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77ABA6629A4A26F00356E84 /* Assets.xcassets */; };
+		B77ABA6A29A4A26F00356E84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77ABA6829A4A26F00356E84 /* LaunchScreen.storyboard */; };
+		B77ABA7529A4A36C00356E84 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B77ABA7429A4A36C00356E84 /* SnapKit */; };
+		B77ABA7829A4A45A00356E84 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = B77ABA7729A4A45A00356E84 /* Hero */; };
+		B77ABA7A29A4A61E00356E84 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA7929A4A61E00356E84 /* SecondViewController.swift */; };
+		B77ABA7C29A4DA0600356E84 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA7B29A4DA0600356E84 /* ThirdViewController.swift */; };
+		B77ABA7E29A4DAEE00356E84 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA7D29A4DAEE00356E84 /* FourthViewController.swift */; };
+		B77ABA8029A4DBC300356E84 /* FiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA7F29A4DBC300356E84 /* FiveViewController.swift */; };
+		B77ABA8229A4E3AA00356E84 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABA8129A4E3AA00356E84 /* StartViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B77ABA5A29A4A26E00356E84 /* HeroChallange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroChallange.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B77ABA5D29A4A26E00356E84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B77ABA5F29A4A26E00356E84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B77ABA6129A4A26E00356E84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B77ABA6429A4A26E00356E84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B77ABA6629A4A26F00356E84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B77ABA6929A4A26F00356E84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B77ABA6B29A4A26F00356E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B77ABA7929A4A61E00356E84 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		B77ABA7B29A4DA0600356E84 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		B77ABA7D29A4DAEE00356E84 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		B77ABA7F29A4DBC300356E84 /* FiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveViewController.swift; sourceTree = "<group>"; };
+		B77ABA8129A4E3AA00356E84 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B77ABA5729A4A26E00356E84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77ABA7829A4A45A00356E84 /* Hero in Frameworks */,
+				B77ABA7529A4A36C00356E84 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B77ABA5129A4A26E00356E84 = {
+			isa = PBXGroup;
+			children = (
+				B77ABA5C29A4A26E00356E84 /* HeroChallange */,
+				B77ABA5B29A4A26E00356E84 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B77ABA5B29A4A26E00356E84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B77ABA5A29A4A26E00356E84 /* HeroChallange.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B77ABA5C29A4A26E00356E84 /* HeroChallange */ = {
+			isa = PBXGroup;
+			children = (
+				B77ABA7229A4A2D300356E84 /* Scene */,
+				B77ABA7129A4A2CE00356E84 /* Core */,
+				B77ABA6B29A4A26F00356E84 /* Info.plist */,
+			);
+			path = HeroChallange;
+			sourceTree = "<group>";
+		};
+		B77ABA7129A4A2CE00356E84 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B77ABA5D29A4A26E00356E84 /* AppDelegate.swift */,
+				B77ABA5F29A4A26E00356E84 /* SceneDelegate.swift */,
+				B77ABA6329A4A26E00356E84 /* Main.storyboard */,
+				B77ABA6629A4A26F00356E84 /* Assets.xcassets */,
+				B77ABA6829A4A26F00356E84 /* LaunchScreen.storyboard */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B77ABA7229A4A2D300356E84 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B77ABA6129A4A26E00356E84 /* ViewController.swift */,
+				B77ABA7929A4A61E00356E84 /* SecondViewController.swift */,
+				B77ABA7B29A4DA0600356E84 /* ThirdViewController.swift */,
+				B77ABA7D29A4DAEE00356E84 /* FourthViewController.swift */,
+				B77ABA7F29A4DBC300356E84 /* FiveViewController.swift */,
+				B77ABA8129A4E3AA00356E84 /* StartViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B77ABA5929A4A26E00356E84 /* HeroChallange */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B77ABA6E29A4A26F00356E84 /* Build configuration list for PBXNativeTarget "HeroChallange" */;
+			buildPhases = (
+				B77ABA5629A4A26E00356E84 /* Sources */,
+				B77ABA5729A4A26E00356E84 /* Frameworks */,
+				B77ABA5829A4A26E00356E84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeroChallange;
+			packageProductDependencies = (
+				B77ABA7429A4A36C00356E84 /* SnapKit */,
+				B77ABA7729A4A45A00356E84 /* Hero */,
+			);
+			productName = HeroChallange;
+			productReference = B77ABA5A29A4A26E00356E84 /* HeroChallange.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B77ABA5229A4A26E00356E84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					B77ABA5929A4A26E00356E84 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = B77ABA5529A4A26E00356E84 /* Build configuration list for PBXProject "HeroChallange" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B77ABA5129A4A26E00356E84;
+			packageReferences = (
+				B77ABA7329A4A36C00356E84 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B77ABA7629A4A45A00356E84 /* XCRemoteSwiftPackageReference "Hero" */,
+			);
+			productRefGroup = B77ABA5B29A4A26E00356E84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B77ABA5929A4A26E00356E84 /* HeroChallange */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B77ABA5829A4A26E00356E84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77ABA6A29A4A26F00356E84 /* LaunchScreen.storyboard in Resources */,
+				B77ABA6729A4A26F00356E84 /* Assets.xcassets in Resources */,
+				B77ABA6529A4A26E00356E84 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B77ABA5629A4A26E00356E84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77ABA8029A4DBC300356E84 /* FiveViewController.swift in Sources */,
+				B77ABA8229A4E3AA00356E84 /* StartViewController.swift in Sources */,
+				B77ABA7E29A4DAEE00356E84 /* FourthViewController.swift in Sources */,
+				B77ABA7A29A4A61E00356E84 /* SecondViewController.swift in Sources */,
+				B77ABA6229A4A26E00356E84 /* ViewController.swift in Sources */,
+				B77ABA7C29A4DA0600356E84 /* ThirdViewController.swift in Sources */,
+				B77ABA5E29A4A26E00356E84 /* AppDelegate.swift in Sources */,
+				B77ABA6029A4A26E00356E84 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B77ABA6329A4A26E00356E84 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B77ABA6429A4A26E00356E84 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B77ABA6829A4A26F00356E84 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B77ABA6929A4A26F00356E84 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B77ABA6C29A4A26F00356E84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B77ABA6D29A4A26F00356E84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B77ABA6F29A4A26F00356E84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y37UHY4HLZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HeroChallange/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetarikan.HeroChallange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B77ABA7029A4A26F00356E84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y37UHY4HLZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HeroChallange/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetarikan.HeroChallange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B77ABA5529A4A26E00356E84 /* Build configuration list for PBXProject "HeroChallange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B77ABA6C29A4A26F00356E84 /* Debug */,
+				B77ABA6D29A4A26F00356E84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B77ABA6E29A4A26F00356E84 /* Build configuration list for PBXNativeTarget "HeroChallange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B77ABA6F29A4A26F00356E84 /* Debug */,
+				B77ABA7029A4A26F00356E84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B77ABA7329A4A36C00356E84 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		B77ABA7629A4A45A00356E84 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B77ABA7429A4A36C00356E84 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B77ABA7329A4A36C00356E84 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B77ABA7729A4A45A00356E84 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B77ABA7629A4A45A00356E84 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B77ABA5229A4A26E00356E84 /* Project object */;
+}

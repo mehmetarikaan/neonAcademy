@@ -5,6 +5,8 @@
 //  Created by Mehmet Arıkan on 13.02.2023.
 //
 
+// kapandığında yeşil olcak
+
 import UIKit
 import SnapKit
 
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
             view.backgroundColor = .red
             sender.onTintColor = .green
         }
-        //sender.onTintColor = .clear
+        
     }
 }
 
