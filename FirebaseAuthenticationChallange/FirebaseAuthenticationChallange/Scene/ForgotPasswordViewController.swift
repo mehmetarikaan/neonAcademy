@@ -40,9 +40,22 @@ class ForgotPasswordViewController: UIViewController {
         return button
     }()
     
+    lazy var alreadyLoginButton: UIButton = {
+       var button = UIButton()
+        button.setTitle("Login", for: .normal)
+        button.tintColor = .systemGray
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(toLog), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    @objc func toLog(){
+        let vc = LoginViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func emailSent(){
@@ -90,6 +103,15 @@ class ForgotPasswordViewController: UIViewController {
             make.top.equalTo(emailTextFields.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(50)
             make.trailing.equalToSuperview().inset(50)
+        }
+        
+        view.addSubview(alreadyLoginButton)
+        
+        alreadyLoginButton.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(50)
+            make.trailing.equalToSuperview().inset(50)
+            
         }
     }
 }
