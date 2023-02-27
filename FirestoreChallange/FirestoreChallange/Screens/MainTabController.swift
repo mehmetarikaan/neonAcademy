@@ -56,7 +56,7 @@ final class MainTabController: UITabBarController {
                 
         viewControllers = [feed, imageSelector, profile]
         
-        tabBar.tintColor = #colorLiteral(red: 0.9607843137, green: 0.8862745098, blue: 0.0862745098, alpha: 1)
+        tabBar.tintColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
     }
     //MARK: - API
     

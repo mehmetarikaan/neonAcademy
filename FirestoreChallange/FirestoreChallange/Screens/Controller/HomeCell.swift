@@ -25,8 +25,6 @@ final class HomeCell: UICollectionViewCell {
         iv.isUserInteractionEnabled = true
         iv.image = UIImage(named: "NeonAppsLogo")
         iv.layer.cornerRadius = 40 / 2
-        //let tap = UITapGestureRecognizer(target: self, action: #selector(showUserProfile))
-        //iv.addGestureRecognizer(tap)
         return iv
     }()
     private lazy var usernameButton: UIButton = {
@@ -49,7 +47,6 @@ final class HomeCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.tintColor = .black
-        //button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         return button
     }()
     private lazy var commentButton: UIButton = {
@@ -62,7 +59,7 @@ final class HomeCell: UICollectionViewCell {
     private let likesLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 13)
-        label.text = "2 likes"
+        label.text = "244 likes"
         label.textColor = .black
         return label
     }()
@@ -74,7 +71,7 @@ final class HomeCell: UICollectionViewCell {
     }()
     private let postTimeLabel: UILabel = {
         let label = UILabel()
-        label.text = "2 days ago"
+        label.text = "6 days ago"
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .lightGray
         return label

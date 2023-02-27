@@ -101,7 +101,7 @@
 		B7B2174929ACDA2A00C903BE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B7B2174F29ACE45E00C903BE /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadPostController.swift; path = FirestoreChallange/UploadPostController.swift; sourceTree = SOURCE_ROOT; };
 		B7B2175129ACE4B600C903BE /* ImageSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageSelectorController.swift; path = FirestoreChallange/ImageSelectorController.swift; sourceTree = SOURCE_ROOT; };
-		B7B2175329ACE4D400C903BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabController.swift; path = FirestoreChallange/MainTabController.swift; sourceTree = SOURCE_ROOT; };
+		B7B2175329ACE4D400C903BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabController.swift; path = FirestoreChallange/Screens/MainTabController.swift; sourceTree = SOURCE_ROOT; };
 		B7CA7DCE29A893DD00EC4B49 /* mehmet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mehmet.jpg; sourceTree = "<group>"; };
 		B7CA7DD029A8DD4500EC4B49 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		B7CA7DD329AB4C6B00EC4B49 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -152,18 +152,8 @@
 		B774058929A74090001E3F94 /* FirestoreChallange */ = {
 			isa = PBXGroup;
 			children = (
+				B7B2175529ACE61700C903BE /* Screens */,
 				B7B2174E29ACE33500C903BE /* Core */,
-				B77405A029A740E6001E3F94 /* ViewModel */,
-				B774059F29A740E0001E3F94 /* Model */,
-				B7A706C629A74AEC007BEC3E /* Auth */,
-				B774059E29A740DB001E3F94 /* View */,
-				B77405A129A740EF001E3F94 /* Controller */,
-				B77405A229A740FE001E3F94 /* API */,
-				B774058A29A74090001E3F94 /* AppDelegate.swift */,
-				B774058C29A74090001E3F94 /* SceneDelegate.swift */,
-				B774058E29A74090001E3F94 /* ViewController.swift */,
-				B774059029A74090001E3F94 /* Main.storyboard */,
-				B774059529A74092001E3F94 /* LaunchScreen.storyboard */,
 				B7A706E029A75382007BEC3E /* singing-contract.json */,
 				B7A706E229A75389007BEC3E /* tea-cup.json */,
 				B7A706E429A753B2007BEC3E /* fishTwo.json */,
@@ -172,15 +162,6 @@
 				B774059829A74092001E3F94 /* Info.plist */,
 			);
 			path = FirestoreChallange;
-			sourceTree = "<group>";
-		};
-		B774059E29A740DB001E3F94 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B7B2172B29ACD76700C903BE /* HomeScreen */,
-				B7B2171829ACCC0100C903BE /* Profile */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B774059F29A740E0001E3F94 /* Model */ = {
@@ -201,15 +182,6 @@
 				B7CA7DE029ABBF2E00EC4B49 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		B77405A129A740EF001E3F94 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B7B2173429ACD7DA00C903BE /* UploadPostScreen */,
-				B7B2175329ACE4D400C903BE /* MainTabController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		B77405A229A740FE001E3F94 /* API */ = {
@@ -234,7 +206,7 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		B7B2171829ACCC0100C903BE /* Profile */ = {
+		B7B2171829ACCC0100C903BE /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
 				B7A706E629A755B4007BEC3E /* ProfileController.swift */,
@@ -242,7 +214,7 @@
 				B7B2171629ACC7A900C903BE /* ProfileHeader.swift */,
 				B7B2172529ACD58F00C903BE /* ProfileHeaderViewModel.swift */,
 			);
-			path = Profile;
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 		B7B2172B29ACD76700C903BE /* HomeScreen */ = {
@@ -263,7 +235,8 @@
 				B7B2174F29ACE45E00C903BE /* UploadPostController.swift */,
 				B7B2175129ACE4B600C903BE /* ImageSelectorController.swift */,
 			);
-			path = UploadPostScreen;
+			name = UploadPostScreen;
+			path = ../Controller/UploadPostScreen;
 			sourceTree = "<group>";
 		};
 		B7B2173929ACD88400C903BE /* Custom */ = {
@@ -297,12 +270,48 @@
 		B7B2174E29ACE33500C903BE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B774058E29A74090001E3F94 /* ViewController.swift */,
+				B7B2175829ACE72200C903BE /* Storyboards */,
+				B77405A229A740FE001E3F94 /* API */,
+				B7B2175729ACE6EF00C903BE /* Delegates */,
+				B774059F29A740E0001E3F94 /* Model */,
+				B77405A029A740E6001E3F94 /* ViewModel */,
 				B7B2173929ACD88400C903BE /* Custom */,
 				B7CA7DCD29A893BA00EC4B49 /* Assets */,
 				B7B2174529ACD98E00C903BE /* Constant */,
 				B7B2174829ACDA1B00C903BE /* Extension */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		B7B2175529ACE61700C903BE /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B7B2175329ACE4D400C903BE /* MainTabController.swift */,
+				B7A706C629A74AEC007BEC3E /* Auth */,
+				B7B2173429ACD7DA00C903BE /* UploadPostScreen */,
+				B7B2171829ACCC0100C903BE /* ProfileScreen */,
+				B7B2172B29ACD76700C903BE /* HomeScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B7B2175729ACE6EF00C903BE /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B774058A29A74090001E3F94 /* AppDelegate.swift */,
+				B774058C29A74090001E3F94 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		B7B2175829ACE72200C903BE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B774059029A74090001E3F94 /* Main.storyboard */,
+				B774059529A74092001E3F94 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		B7CA7DCD29A893BA00EC4B49 /* Assets */ = {
