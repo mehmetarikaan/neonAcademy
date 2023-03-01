@@ -45,8 +45,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        
-        
     }
     
     @objc func animatePressed(){
