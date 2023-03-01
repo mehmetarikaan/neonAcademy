@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseRemoteConfig
 import SnapKit
+import FirebaseDynamicLinks
 
 class ViewController: UIViewController {
     
