@@ -6,8 +6,8 @@
 //
 
 
-// Divider ekle
-
+// Divider ekle -- eklendi
+//line.diagonal
 
 import UIKit
 import SnapKit
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         stepper.maximumValue = 50
         stepper.stepValue = 5
         stepper.backgroundColor = .systemPink
-        stepper.tintColor = .white
+        stepper.setDividerImage(UIImage(systemName: "line.diagonal"), forLeftSegmentState: .normal, rightSegmentState: .normal)
         stepper.layer.bounds = .zero
         stepper.setDecrementImage(UIImage(named: "heart"), for: .normal)
         stepper.setIncrementImage(UIImage(named: "heart.fill"), for: .normal)
