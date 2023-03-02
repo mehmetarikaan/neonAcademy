@@ -2,12 +2,12 @@
 //  Color.swift
 //  SlidersChallenge
 //
-//  Created by Mehmet Arıkan on 13.02.2023.
+//  Created by Mehmet Arıkan on 2.03.2023.
 //
 
 import UIKit
 
-class Colo/Users/mehmetarikan/Desktop/NeonApps/SlidersChallenge/SlidersChallenge/Screens/Color.swiftr {
+class Color {
     private var green: CGFloat
     private var red: CGFloat
     private var blue: CGFloat
@@ -32,3 +32,4 @@ class Colo/Users/mehmetarikan/Desktop/NeonApps/SlidersChallenge/SlidersChallenge
         return color
     }
 }
+
