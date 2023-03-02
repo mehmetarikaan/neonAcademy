@@ -22,16 +22,26 @@ class ViewController: UIViewController {
         return headerTitle
     }()
     
+    // created menu
+    let menuOne = UIAction(title: "KFC - Kova Menu", attributes: .keepsMenuPresented, state: .off, handler: {_ in
+        print("KFC")
+    })
+    
+    let menuTwo = UIAction(title: "Popeys", attributes: .keepsMenuPresented, state: .off, handler: {_ in
+        print("Popeyes")
+    })
+    
     lazy var buttonOne: UIButton = {
     let button = UIButton()
         button.setTitle("Hi, click me!", for: .normal)
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 20
-        
+        button.menu = UIMenu(children: [menuOne, menuTwo])
+        button.showsMenuAsPrimaryAction = true
         button.addTarget(self, action: #selector(pressedButtonOne), for: .touchUpInside)
-        
         return button
     }()
+    
     //TWO
     lazy var headerTitleTwo: UILabel = {
         let headerTitle = UILabel()
@@ -105,6 +115,17 @@ class ViewController: UIViewController {
         
         return button
     }()
+    
+    lazy var buttonForHide: UIButton = {
+        let button = UIButton()
+        button.setTitle("Hi, I am enabled", for: .normal)
+        button.backgroundColor = .blue
+        button.tintColor = .blue
+        button.addTarget(self, action: #selector(buttonForPressedHidden), for: .touchUpInside)
+        button.isHidden = false
+        
+        return button
+    }()
     //Five
     
     lazy var headerTitleFive: UILabel = {
@@ -126,6 +147,7 @@ class ViewController: UIViewController {
         
         return button
     }()
+    
     var player: AVAudioPlayer!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +155,9 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         setupView()
         
+    }
+    
+    func createdMenu(){
     }
   
     func setupView() {
@@ -148,6 +173,7 @@ class ViewController: UIViewController {
         //For
         view.addSubview(headerTitleFor)
         view.addSubview(buttonFor)
+        view.addSubview(buttonForHide)
         //Five
         view.addSubview(headerTitleFive)
         view.addSubview(buttonFive)
@@ -198,9 +224,14 @@ class ViewController: UIViewController {
         buttonFor.snp.makeConstraints { make in
             make.top.equalTo(headerTitleFor).offset(40)
             make.height.equalTo(50)
-            make.width.equalTo(20)
-            make.right.equalTo(-80)
-            make.left.equalTo(80)
+            make.width.equalTo(150)
+            make.leading.equalTo(50)
+        }
+        buttonForHide.snp.makeConstraints { make in
+            make.top.equalTo(headerTitleFor).offset(40)
+            make.left.equalTo(buttonFor.snp.right).offset(10)
+            make.height.equalTo(50)
+            make.width.equalTo(150)
         }
         //Five
         headerTitleFive.snp.makeConstraints { make in
@@ -238,9 +269,19 @@ class ViewController: UIViewController {
         buttonThree.backgroundColor = .purple
     }
     @objc func buttonForPressed(){
-        buttonFor.isHidden.toggle()
-        print("pressed for")
+        if  buttonForHide.isEnabled {
+            buttonForHide.backgroundColor = .systemRed
+            buttonForHide.isEnabled.toggle()
+        } else {
+            buttonForHide.backgroundColor = .systemBlue
+            buttonForHide.isEnabled.toggle()
+        }
     }
+    
+    @objc func buttonForPressedHidden(){
+        
+    }
+    
     @objc func buttonFivePressed(){
         self.view.shake()
         playAuido()
