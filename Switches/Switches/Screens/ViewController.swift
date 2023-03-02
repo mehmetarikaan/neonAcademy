@@ -15,14 +15,15 @@ class ViewController: UIViewController {
     lazy var switches: UISwitch = {
         let switchs = UISwitch()
         switchs.addTarget(self, action: #selector(self.switchStateDidChange(_:)), for: .valueChanged)
+        switchs.isOn = true
         switchs.setOn(true, animated: false)
         switchs.onTintColor = .red
+        
         return switchs
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
-        
         setupUI()
         
     }
@@ -32,17 +33,18 @@ class ViewController: UIViewController {
         
         switches.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(300)
-            make.right.equalToSuperview().offset(-50)
-            make.left.equalToSuperview().offset(175)
+            make.centerX.equalTo(view.center)
         }
     }
     @objc func switchStateDidChange(_ sender: UISwitch!){
         if sender.isOn{
             view.backgroundColor = .green
-            sender.onTintColor = .red
+            switches.onTintColor = .red
         } else {
             view.backgroundColor = .red
-            sender.onTintColor = .green
+            switches.onTintColor = .green
+            switches.backgroundColor = .green
+          
         }
         
     }
