@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         let page = UIPageControl()
         page.numberOfPages = 3
         page.backgroundColor = .systemGray
-        page.addTarget(self, action: #selector(changePage), for: .valueChanged)
+        page.addTarget(ViewController.self, action: #selector(changePage), for: .valueChanged)
         return page
     }()
     
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     func setupUI(){
         view.addSubview(pageControl)
         pageControl.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().inset(40)
             make.centerX.equalToSuperview()
             //make.centerY.equalToSuperview()
         }
