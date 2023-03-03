@@ -21,24 +21,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = MainTabController()
         window?.makeKeyAndVisible()
         
-        //self.setupWindow(with: scene)
-        //self.checkAuthentication()
+        self.setupWindow(with: scene)
+        self.checkAuthentication()
     }
     
-//    private func setupWindow(with scene: UIScene) {
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let window = UIWindow(windowScene: windowScene)
-//        self.window = window
-//        self.window?.makeKeyAndVisible()
-//    }
+    private func setupWindow(with scene: UIScene) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        self.window?.makeKeyAndVisible()
+    }
     
-//    public func checkAuthentication() {
-//        if Auth.auth().currentUser == nil {
-//            self.goToController(with: LoginViewController())
-//        } else {
-//            self.goToController(with: MainTabController())
-//        }
-//    }
+    public func checkAuthentication() {
+        if Auth.auth().currentUser == nil {
+            self.goToController(with: LoginViewController())
+        } else {
+            self.goToController(with: MainTabController())
+        }
+    }
     
     private func goToController(with viewController: UIViewController) {
         DispatchQueue.main.async { [weak self] in

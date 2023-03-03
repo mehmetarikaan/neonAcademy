@@ -27,6 +27,8 @@ class ForgotPasswordViewController: UIViewController {
         text.textColor = .systemGray
         text.textAlignment = .left
         text.borderStyle = .roundedRect
+        text.autocapitalizationType = .none
+        text.autocorrectionType = .no
         text.layer.cornerRadius = 10
         return text
     }()

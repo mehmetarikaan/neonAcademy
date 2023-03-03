@@ -39,6 +39,8 @@ class SignupViewController: UIViewController {
         text.placeholder = "Enter email"
         text.textColor = .systemGray
         text.textAlignment = .left
+        text.autocapitalizationType = .none
+        text.autocorrectionType = .no
         text.borderStyle = .roundedRect
         text.layer.cornerRadius = 10
         return text
@@ -48,6 +50,8 @@ class SignupViewController: UIViewController {
         text.placeholder = "Enter password"
         text.textColor = .systemGray
         text.textAlignment = .left
+        text.autocapitalizationType = .none
+        text.autocorrectionType = .no
         text.borderStyle = .roundedRect
         text.layer.cornerRadius = 10
         text.isSecureTextEntry = true
@@ -59,6 +63,8 @@ class SignupViewController: UIViewController {
         text.placeholder = "Enter username"
         text.textColor = .systemGray
         text.textAlignment = .left
+        text.autocapitalizationType = .none
+        text.autocorrectionType = .no
         text.borderStyle = .roundedRect
         text.layer.cornerRadius = 10
         return text

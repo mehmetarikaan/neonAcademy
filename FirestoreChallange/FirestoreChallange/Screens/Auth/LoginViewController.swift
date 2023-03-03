@@ -36,6 +36,8 @@ final class LoginViewController: UIViewController {
         text.textColor = .systemGray
         text.textAlignment = .left
         text.borderStyle = .roundedRect
+        text.autocapitalizationType = .none
+        text.autocorrectionType = .no
         text.keyboardType = .emailAddress
         text.layer.cornerRadius = 10
         return text
@@ -45,6 +47,8 @@ final class LoginViewController: UIViewController {
         text.placeholder = "Enter password"
         text.textColor = .systemGray
         text.textAlignment = .left
+        text.autocapitalizationType = .none
+        text.autocorrectionType = .no
         text.borderStyle = .roundedRect
         text.layer.cornerRadius = 10
         text.isSecureTextEntry = true
