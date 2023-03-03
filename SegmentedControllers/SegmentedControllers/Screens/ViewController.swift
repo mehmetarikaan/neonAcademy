@@ -30,19 +30,17 @@ class ViewController: UIViewController {
         
         segmentControll.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(80)
-            make.height.equalTo(100)
-            make.width.equalToSuperview()
-            make.centerY.equalTo(0)
-            make.centerX.equalTo(view)
+            make.trailing.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.centerX.equalTo(view.center)
         }
-        
     }
     
     @objc func segmentAction(_ sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
             segmentControll.snp.makeConstraints { make in
-                make.height.equalTo(100)
+                make.height.equalTo(300)
                 make.width.equalToSuperview()
             }
             view.backgroundColor = .systemPink
@@ -60,8 +58,10 @@ class ViewController: UIViewController {
             view.backgroundColor = .systemRed
         default:
             segmentControll.snp.makeConstraints { make in
-                make.height.equalTo(100)
-                make.width.equalToSuperview()
+                make.top.equalToSuperview().offset(80)
+                make.trailing.equalToSuperview().inset(20)
+                make.leading.equalToSuperview().offset(20)
+                make.centerX.equalTo(view.center)
             }
             view.backgroundColor = .systemRed
         }
