@@ -5,7 +5,9 @@
 //  Created by Mehmet Arıkan on 14.02.2023.
 //
 
-// action sheet ve diğerlerine bak
+// action sheete bak
+
+// action sheet eklendi
 
 import UIKit
 import SnapKit
@@ -131,8 +133,11 @@ class ViewController: UIViewController {
     }
     
     func displayedAlertFor(){
-        let activity  = UIActivityViewController(activityItems: [self], applicationActivities: nil)
-        present(activity, animated: true)
+        let activityItems = [UIImage(named: "NeonAppsLogo"), URL(string: "https://www.neonapps.co/")] as [Any]
+        let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        activityController.title = "Activity Controller Title"
+        activityController.excludedActivityTypes = [.addToReadingList, .assignToContact]
+        present(activityController, animated: true, completion: nil)
     }
 
 
