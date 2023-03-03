@@ -5,14 +5,21 @@
 //  Created by Mehmet Arıkan on 14.02.2023.
 //
 
-// bir daha bak 
+// bir daha bak
+
+// bir daha bakıldı
 
 import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-    var myTimer = Timer()
-    var secondsToCount = 1
+    //MARK: - Properties
+    var isValid = false
+    var count = 0
+    var timer : Timer?
+    var colors = [UIColor.systemTeal, UIColor.systemYellow, UIColor.systemBlue, UIColor.systemPink, UIColor.systemGray, UIColor.systemMint, UIColor.systemFill]
+    private var elapsedTime: TimeInterval?
+    
     lazy var labelTitle: UILabel = {
         var label = UILabel()
         label.text = "0"
@@ -24,8 +31,6 @@ class ViewController: UIViewController {
     
     lazy var myIndicator: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(style: .large)
-        activityView.center = self.view.center
-        activityView.color = .red
         return activityView
     }()
     
@@ -33,45 +38,27 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Click me!", for: .normal)
         button.backgroundColor = .systemOrange
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(counter), for: .touchUpInside)
         return button
     }()
     
-    //    var myTimer: Timer = {
-    //        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: ViewController.self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-    //        return timer
-    //    }()
-    
+    //MARK: - Lifeycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    @objc func fireTimer(_ sender: Timer){
-        print("hi")
-    }
-    
-    @objc func buttonPressed(_ sender: UIButton){
-        myTimer.invalidate()
-        myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        
-    }
-    @objc func updateTimer() {
-        secondsToCount += 1
-        if secondsToCount % 10 == 0 {
-            myIndicator.color = .blue
-        } else {
-           labelTitle.text = String(secondsToCount)
-        }
-    }
-    
+    //MARK: - UI Create
     func setupUI(){
         view.addSubview(labelTitle)
         view.addSubview(myIndicator)
         view.addSubview(myButton)
         
-        myIndicator.startAnimating()
+        myIndicator.translatesAutoresizingMaskIntoConstraints = false
+        myIndicator.isHidden = true
+        myIndicator.color = .red
+        myIndicator.hidesWhenStopped = true
         
         myIndicator.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
@@ -94,5 +81,44 @@ class ViewController: UIViewController {
             make.height.equalTo(50)
         }
     }
+    
+    //MARK: - Actions
+    
+    @objc func counter() {
+        
+        if !self.isValid {
+            myIndicator.startAnimating()
+            myButton.setTitle("Stop", for: .normal)
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+            self.isValid = true
+        } else {
+            myButton.setTitle("Start", for: .normal)
+            myIndicator.stopAnimating()
+            timer?.invalidate()
+            self.isValid = false
+        }
+    }
+    
+    @objc func fireTimer() {
+        if timer!.isValid {
+            labelTitle.text = String(count + 1)
+            count += 1
+            
+        } else {
+            labelTitle.text = String(count)
+            timer?.invalidate()
+            
+        }
+        if count % 10 == 0 {
+            myIndicator.color = colors[Int.random(in: 0...colors.count - 1)]
+        }
+        if count == 100 {
+            myIndicator.stopAnimating()
+            timer?.invalidate()
+            count = 0
+        }
+    }
+    
 }
+
 
