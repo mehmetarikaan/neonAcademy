@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
-       // imageView.layer.cornerRadius = imageView.frame.width/3
         imageView.image = UIImage(systemName: "photo.circle.fill")
         imageView.backgroundColor = .black
         imageView.layer.borderColor = UIColor.black.cgColor

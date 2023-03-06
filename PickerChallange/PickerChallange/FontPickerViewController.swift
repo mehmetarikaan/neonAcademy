@@ -83,7 +83,7 @@ class FontPickerViewController: UIViewController, UIFontPickerViewControllerDele
     }
     func fontPickerViewControllerDidPickFont(_ viewController: UIFontPickerViewController) {
         viewController.dismiss(animated: true, completion: nil)
-        var descrpitor = viewController.selectedFontDescriptor
+        let descrpitor = viewController.selectedFontDescriptor
         nameLabel.font = UIFont(descriptor: descrpitor!, size: 20)
     }
 }
