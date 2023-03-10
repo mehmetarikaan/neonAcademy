@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B70938A029AE4DDB0073ECAF /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = B709389F29AE4DDB0073ECAF /* FirebaseDynamicLinks */; };
-		B769DA1929AE96B000C3B703 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B769DA1829AE96B000C3B703 /* GoogleService-Info.plist */; };
+		B752C14F29B7331700E019A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B752C14E29B7331700E019A1 /* GoogleService-Info.plist */; };
 		B7E771D729AE137700983AE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E771D629AE137700983AE6 /* AppDelegate.swift */; };
 		B7E771D929AE137700983AE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E771D829AE137700983AE6 /* SceneDelegate.swift */; };
 		B7E771DB29AE137700983AE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E771DA29AE137700983AE6 /* ViewController.swift */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B769DA1829AE96B000C3B703 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B752C14E29B7331700E019A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7E771D329AE137700983AE6 /* RemoteConfigChallange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteConfigChallange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E771D629AE137700983AE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7E771D829AE137700983AE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 				B7E771DF29AE137900983AE6 /* Assets.xcassets */,
 				B7E771E129AE137900983AE6 /* LaunchScreen.storyboard */,
 				B7E771E429AE137900983AE6 /* Info.plist */,
-				B769DA1829AE96B000C3B703 /* GoogleService-Info.plist */,
+				B752C14E29B7331700E019A1 /* GoogleService-Info.plist */,
 			);
 			path = RemoteConfigChallange;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7E771E329AE137900983AE6 /* LaunchScreen.storyboard in Resources */,
-				B769DA1929AE96B000C3B703 /* GoogleService-Info.plist in Resources */,
+				B752C14F29B7331700E019A1 /* GoogleService-Info.plist in Resources */,
 				B7E771E029AE137900983AE6 /* Assets.xcassets in Resources */,
 				B7E771DE29AE137700983AE6 /* Main.storyboard in Resources */,
 			);
