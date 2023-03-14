@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "hero",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HeroTransitions/Hero.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "45aed927b66348738fd81ab599898e7b47cfdc6e"
+      }
+    },
+    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit.git",

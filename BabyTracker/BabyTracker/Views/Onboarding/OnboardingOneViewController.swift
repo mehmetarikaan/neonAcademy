@@ -8,20 +8,26 @@
 
 import UIKit
 import SnapKit
+import Hero
 
 final class OnboardingOneViewController: UIViewController {
-    
+    //MARK: - Properties
     lazy var image: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "img_1")
         return image
     }()
-
+    lazy var firstView: UIView = {
+        let first = UIView()
+        first.backgroundColor = .black
+        first.isHidden = true
+        return first
+    }()
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Track Your Baby's Activities with Ease"
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 31, weight: .semibold)
         label.textColor = .black
         label.textAlignment = .center
         return label
@@ -32,19 +38,41 @@ final class OnboardingOneViewController: UIViewController {
         label.text = "Get started with tracking your baby's feedings, diaper changes, sleep patterns, and more..."
         label.numberOfLines = 0
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         label.textAlignment = .center
         return label
+    }()
+    
+    lazy var imageController: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "slider1")
+        return image
     }()
     
     lazy var customButton: CustomButton = {
        let custom = CustomButton()
         custom.setTitle("Next", for: .normal)
+        custom.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
         return custom
     }()
-   
+   //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
+        self.navigationController?.hero.navigationAnimationType = .none
+        imageController.hero.id = "pageController"
+        setupUI()
+    }
+    
+    //MARK: - Actions
+    @objc func handleNextButton(){
+        let viewTwo = OnboardingTwoViewController()
+        viewTwo.hero.isEnabled = true
+        navigationController?.pushViewController(viewTwo, animated: true)
+    }
+    
+    //MARK: - Helpers
+    func setupUI(){
         view.backgroundColor = .white
         view.addSubview(image)
         image.snp.makeConstraints { make in
@@ -52,24 +80,37 @@ final class OnboardingOneViewController: UIViewController {
             make.centerX.equalTo(view.center)
            make.bottom.equalToSuperview()
         }
-        image.addSubview(customButton)
-        customButton.snp.makeConstraints { make in
+        image.addSubview(firstView)
+        firstView.snp.makeConstraints { make in
             make.centerX.equalTo(view.center)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.centerY.equalTo(view.center)
+            make.height.equalTo(1)
+            make.width.equalToSuperview()
+        }
+        
+        image.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(firstView.snp.bottom).offset(16)
+            make.centerX.equalTo(view.center)
+            make.leading.equalToSuperview().offset(44)
+            make.trailing.equalToSuperview().inset(44)
         }
         image.addSubview(descLabel)
         descLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.center)
-            make.bottom.equalTo(customButton).inset(150)
+            make.top.equalTo(titleLabel.snp.bottom).offset(32)
             make.leading.equalToSuperview().offset(60)
             make.trailing.equalToSuperview().inset(60)
         }
-        image.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(descLabel.snp.bottom).inset(100)
+        view.addSubview(customButton)
+        customButton.snp.makeConstraints { make in
             make.centerX.equalTo(view.center)
-            make.leading.equalToSuperview().offset(55)
-            make.trailing.equalToSuperview().inset(55)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        image.addSubview(imageController)
+        imageController.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.bottom.equalTo(customButton).inset(80)
         }
     }
 }

@@ -15,7 +15,7 @@ final class CustomButton: UIButton {
         
         setTitleColor(UIColor(white: 1, alpha: 1), for: .normal)
         backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
-        layer.cornerRadius = 15
+        layer.cornerRadius = 25
         heightAnchor.constraint(equalToConstant: 55).isActive = true
         widthAnchor.constraint(equalToConstant: 350).isActive = true
     }

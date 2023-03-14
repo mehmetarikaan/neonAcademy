@@ -43,7 +43,6 @@ extension OnboardingViewController {
     
     func style() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        //pageControl.setIndicatorImage(UIImage(named: "slider1"), forPage: 0)
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.pageIndicatorTintColor = .systemGray2
         pageControl.numberOfPages = pages.count

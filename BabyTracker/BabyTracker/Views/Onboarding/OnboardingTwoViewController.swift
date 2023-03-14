@@ -7,50 +7,109 @@
 
 import UIKit
 import SnapKit
+import Hero
 
 final class OnboardingTwoViewController: UIViewController {
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "this is title"
-        label.textColor = .systemGray
-        label.font = UIFont(name: "Avenir-Heavy", size: 26)
-        return label
-    }()
-    private let subtitle: UILabel = {
-        let label = UILabel()
-        label.text = "this is subtitle"
-        label.textColor = .systemYellow
-        label.font = UIFont(name: "Avenir", size: 24)
-        return label
-    }()
-    private let princeImage: UIImageView = {
+    //MARK: - Properties
+    lazy var image: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "mehmet")
-        image.tintColor = .systemYellow
+        image.image = UIImage(named: "img_2")
         return image
     }()
+    lazy var firstView: UIView = {
+        let first = UIView()
+        first.backgroundColor = .black
+        first.isHidden = true
+        return first
+    }()
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Learn About Your Baby"
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var descLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Customize your baby's profile, set reminders for important activities, and view detailed reports on your baby's progress"
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var imageController: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "slider2")
+        return image
+    }()
+    
+    lazy var customButton: CustomButton = {
+       let custom = CustomButton()
+        custom.setTitle("Next", for: .normal)
+        custom.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
+        return custom
+    }()
+   //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+        navigationController?.isNavigationBarHidden = true
+        self.hero.isEnabled = true
+        imageController.hero.id = "pageController"
+        setupUI()
+    }
+    
+    //MARK: - Actions
+    @objc func handleNextButton(){
+        let viewThree = OnboardingThreeViewController()
+        viewThree.hero.isEnabled = true
+        navigationController?.pushViewController(viewThree, animated: true)
+    }
+    
+    //MARK: - Helpers
+    func setupUI(){
+        view.backgroundColor = .white
+        view.addSubview(image)
+        image.snp.makeConstraints { make in
+            make.top.equalToSuperview()
             make.centerX.equalTo(view.center)
+           make.bottom.equalToSuperview()
         }
-        view.addSubview(subtitle)
-        subtitle.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+        image.addSubview(firstView)
+        firstView.snp.makeConstraints { make in
             make.centerX.equalTo(view.center)
+            make.centerY.equalTo(view.center)
+            make.height.equalTo(1)
+            make.width.equalToSuperview()
         }
         
-        view.addSubview(princeImage)
-        princeImage.snp.makeConstraints { make in
-            make.top.equalTo(subtitle.snp.bottom).offset(10)
-            make.height.equalTo(150)
-            make.width.equalTo(175)
+        image.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(firstView.snp.bottom).offset(16)
             make.centerX.equalTo(view.center)
+            make.leading.equalToSuperview().offset(44)
+            make.trailing.equalToSuperview().inset(44)
+        }
+        image.addSubview(descLabel)
+        descLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.top.equalTo(titleLabel.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(60)
+            make.trailing.equalToSuperview().inset(60)
+        }
+        view.addSubview(customButton)
+        customButton.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        image.addSubview(imageController)
+        imageController.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.bottom.equalTo(customButton).inset(74)
         }
     }
 }
-
-
