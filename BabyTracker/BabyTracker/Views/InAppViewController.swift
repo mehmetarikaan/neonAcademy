@@ -75,6 +75,33 @@ class InAppViewController: UIViewController {
         label.textAlignment = .left
         return label
     }()
+    lazy var backgroundView: UIView = {
+        let bgView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        bgView.layer.cornerRadius = 25
+        bgView.backgroundColor = .white
+        bgView.layer.shadowOpacity = 0.1
+        bgView.layer.shadowOffset = .zero
+        bgView.layer.shadowRadius = 5
+        return bgView
+    }()
+    
+    lazy var weeklyImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "img_weekly")
+        return image
+    }()
+    
+    lazy var monthlyImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "img_monthly")
+        return image
+    }()
+    
+    lazy var annualImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "img_annual")
+        return image
+    }()
     
     //MARK: - Lifeycle
     override func viewDidLoad() {
@@ -114,18 +141,49 @@ class InAppViewController: UIViewController {
         
         view.addSubview(stackOne)
         stackOne.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(32)
-            make.leading.equalTo(109)
+            make.top.equalTo(imageView.snp.bottom).offset(28)
+            make.leading.equalTo(titleLabel.snp.leading).offset(-25)
         }
         view.addSubview(stackTwo)
         stackTwo.snp.makeConstraints { make in
             make.top.equalTo(stackOne.snp.top).offset(28)
-            make.leading.equalTo(109)
+            make.leading.equalTo(titleLabel.snp.leading).offset(-25)
         }
         view.addSubview(stackThree)
         stackThree.snp.makeConstraints { make in
             make.top.equalTo(stackTwo.snp.top).offset(28)
-            make.leading.equalTo(109)
+            make.leading.equalTo(titleLabel.snp.leading).offset(-25)
+        }
+        view.addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { make in
+            make.top.equalTo(stackThree.snp.bottom).offset(16)
+            make.centerX.equalTo(view.center)
+            make.height.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        backgroundView.addSubview(weeklyImage)
+        weeklyImage.snp.makeConstraints { make in
+            make.top.equalTo(backgroundView.snp.top).offset(30)
+            make.centerX.equalTo(backgroundView)
+            make.height.equalTo(weeklyImage.snp.width).dividedBy(4.8)
+            make.leading.equalToSuperview().offset(28)
+            make.trailing.equalToSuperview().inset(28)
+        }
+        backgroundView.addSubview(monthlyImage)
+        monthlyImage.snp.makeConstraints { make in
+            make.top.equalTo(weeklyImage.snp.bottom).offset(36)
+            make.centerX.equalTo(backgroundView)
+            make.height.equalTo(weeklyImage.snp.width).dividedBy(4.8)
+            make.leading.equalToSuperview().offset(28)
+            make.trailing.equalToSuperview().inset(28)
+        }
+        backgroundView.addSubview(annualImage)
+        annualImage.snp.makeConstraints { make in
+            make.top.equalTo(monthlyImage.snp.bottom).offset(36)
+            make.centerX.equalTo(backgroundView)
+            make.height.equalTo(weeklyImage.snp.width).dividedBy(4.8)
+            make.leading.equalToSuperview().offset(28)
+            make.trailing.equalToSuperview().inset(28)
         }
     }
 }
