@@ -29,6 +29,10 @@ class HomeViewController: UIViewController {
         label.text = "Edit Profile"
         label.textColor = .systemBlue
         label.font = .systemFont(ofSize: 13, weight: .medium)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.handleEditProfile))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+        label.isEnabled = true
         label.underline()
         return label
     }()
@@ -141,11 +145,19 @@ class HomeViewController: UIViewController {
         }
     }
     func configureBarItems(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_settings"), target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_settings"), target: self, action: #selector(handleSetting))
         navigationItem.leftBarButtonItem?.tintColor = .black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_calender"), target: self, action: nil)
         navigationItem.rightBarButtonItem?.tintColor = .black
+    }
+    @objc func handleSetting(){
+        
+    }
+    @objc func handleEditProfile(){
+        print("sdfsdf")
+        let vc = EditViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -154,11 +166,11 @@ class HomeViewController: UIViewController {
 extension UILabel {
     func underline() {
         if let textString = self.text {
-          let attributedString = NSMutableAttributedString(string: textString)
+            let attributedString = NSMutableAttributedString(string: textString)
             attributedString.addAttribute(NSAttributedString.Key.underlineStyle,
                                           value: NSUnderlineStyle.single.rawValue,
                                           range: NSRange(location: 0, length: attributedString.length))
-          attributedText = attributedString
+            attributedText = attributedString
         }
     }
 }

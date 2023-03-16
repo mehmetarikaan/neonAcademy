@@ -1,26 +1,31 @@
 //
-//  LoginInformationViewController.swift
+//  EditViewController.swift
 //  BabyTracker
 //
-//  Created by Mehmet Arıkan on 15.03.2023.
+//  Created by Mehmet Arıkan on 16.03.2023.
 //
 
 //FIXME: -
 // CoreData'ya veri kaydet
 // Klavye etkinliklerini kontrol et ve en alttaki textfield klavye ile yukarı kaysın.
-// Continue button'un aktif ve pasif etkinliklerini yap
+// Save button'un aktif ve pasif etkinliklerini yap
+// lottie ile loading ekle
+// core data bağlantılarını yap ve coredatadaki veriyi textfieldlara al
+// verileri güncelle
+// Save sonrası saved göster
+
 
 import UIKit
 import SnapKit
 
-final class LoginInformationViewController: UIViewController {
+final class EditViewController: UIViewController {
     //MARK: - Properties
     private var formModel = FormModel()
     var formIsNewValid = false
     private var profileImage: UIImage?
     lazy var plusPhotoButton: UIButton = {
         var button = UIButton()
-        button.setImage(UIImage(named: "btn_addphoto"), for: .normal)
+        button.setImage(UIImage(named: "btn_addphoto-1"), for: .normal)
         button.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(handleProfilePhotoSelected), for: .touchUpInside)
         return button
@@ -95,10 +100,10 @@ final class LoginInformationViewController: UIViewController {
     }()
     lazy var continueButton: CustomButton = {
         let button = CustomButton()
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Save", for: .normal)
         button.setTitleColor(UIColor.white,for: .normal)
         button.isEnabled = true
-        button.addTarget(self, action: #selector(handleContinueButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
         return button
     }()
     //MARK: - Lifeycle
@@ -108,6 +113,7 @@ final class LoginInformationViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         checkFormStatus()
         formIsNewValid = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_back")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(backButtonHome))
     }
     //MARK: - Helpers
     func setupLoginUI(){
@@ -164,6 +170,12 @@ final class LoginInformationViewController: UIViewController {
     }
     //MARK: - Actions
     
+    @objc func backButtonHome(){
+        navigationController?.popViewController(animated: true)
+    }
+
+    
+    
     //Girl and Boy button is selected func
     
     // FIXME: - FormIs dont working
@@ -191,7 +203,11 @@ final class LoginInformationViewController: UIViewController {
         }
     }
     
-    @objc func handleContinueButton(){
+    @objc func handleBack(){
+        navigationController?.pushViewController(HomeViewController(), animated: true)
+    }
+    
+    @objc func handleSaveButton(){
         if formIsNewValid {
             continueButton.isEnabled = true
             continueButton.backgroundColor = .purple
@@ -256,7 +272,7 @@ final class LoginInformationViewController: UIViewController {
 //MARK: - Extensions
 
 // MARK: - UpdateFormProtocol
-extension LoginInformationViewController: FormControllerProtocol {
+extension EditViewController: FormControllerProtocol {
 func checkFormStatus() {
     if formModel.formIsValid {
         continueButton.isEnabled = true
@@ -270,7 +286,7 @@ func checkFormStatus() {
 
 //MARK: - UIImagePickerControllerDelegate
 
-extension LoginInformationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
         
@@ -284,17 +300,5 @@ extension LoginInformationViewController: UIImagePickerControllerDelegate, UINav
         
         self.dismiss(animated: true, completion: nil)
 
-    }
-}
-//Closed Keyboard
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }

@@ -11,6 +11,7 @@
 		B738D74629C1E8DD0077711E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738D74529C1E8DD0077711E /* CustomTextField.swift */; };
 		B7B9944F29C313B50080533A /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9944E29C313B50080533A /* FormModel.swift */; };
 		B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945129C3216D0080533A /* HomeViewController.swift */; };
+		B7B9945529C349DB0080533A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945429C349DB0080533A /* EditViewController.swift */; };
 		B7CA3DBD29C04AFF009CFC1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */; };
 		B7CA3DBF29C04AFF009CFC1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */; };
 		B7CA3DC429C04AFF009CFC1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CA3DC229C04AFF009CFC1A /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		B738D74529C1E8DD0077711E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B7B9944E29C313B50080533A /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		B7B9945129C3216D0080533A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B7B9945429C349DB0080533A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		B7CA3DB929C04AFF009CFC1A /* BabyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		B7B9945329C349A20080533A /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				B7B9945429C349DB0080533A /* EditViewController.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				B7B9944F29C313B50080533A /* FormModel.swift in Sources */,
 				B7CA3DBD29C04AFF009CFC1A /* AppDelegate.swift in Sources */,
 				B7CA3DDA29C05000009CFC1A /* OnboardingOneViewController.swift in Sources */,
+				B7B9945529C349DB0080533A /* EditViewController.swift in Sources */,
 				B7CA3DE329C05E32009CFC1A /* CustomButton.swift in Sources */,
 				B7CA3DE529C098BA009CFC1A /* InAppViewController.swift in Sources */,
 				B7CA3DBF29C04AFF009CFC1A /* SceneDelegate.swift in Sources */,
