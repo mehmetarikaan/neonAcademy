@@ -15,7 +15,6 @@ final class CustomTextField: UITextField {
         super.init(frame: frame)
         self.leftView = indentView
         self.leftViewMode = .always
-        //textAlignment = .left
         textColor = .black
         font = .boldSystemFont(ofSize: 14)
         backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)

@@ -182,7 +182,6 @@ class InAppViewController: UIViewController {
 //        stackLabel.distribution = .equalSpacing
 //        stackLabel.spacing = 1
         
-    
         
         stackOne.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(8)
