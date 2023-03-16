@@ -50,9 +50,9 @@ final class OnboardingOneViewController: UIViewController {
     }()
     
     lazy var customButton: CustomButton = {
-       let custom = CustomButton()
+        let custom = CustomButton()
         custom.setTitle("Next", for: .normal)
-        custom.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
+        custom.addTarget(self, action: #selector(self.handleNextButton), for: .touchUpInside)
         return custom
     }()
    //MARK: - Lifeycle
@@ -66,8 +66,8 @@ final class OnboardingOneViewController: UIViewController {
     
     //MARK: - Actions
     @objc func handleNextButton(){
+        print("32423")
         let viewTwo = OnboardingTwoViewController()
-        viewTwo.hero.isEnabled = true
         navigationController?.pushViewController(viewTwo, animated: true)
     }
     
@@ -104,8 +104,10 @@ final class OnboardingOneViewController: UIViewController {
         }
         view.addSubview(customButton)
         customButton.snp.makeConstraints { make in
-            make.centerX.equalTo(view.center)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.right.equalToSuperview().inset(40)
+            make.left.equalToSuperview().offset(40)
+            make.height.equalTo(customButton.snp.width).multipliedBy(0.18)
         }
         image.addSubview(imageController)
         imageController.snp.makeConstraints { make in

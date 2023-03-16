@@ -103,8 +103,10 @@ final class OnboardingThreeViewController: UIViewController {
         }
         view.addSubview(customButton)
         customButton.snp.makeConstraints { make in
-            make.centerX.equalTo(view.center)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.right.equalToSuperview().inset(40)
+            make.left.equalToSuperview().offset(40)
+            make.height.equalTo(customButton.snp.width).multipliedBy(0.18)
         }
         image.addSubview(imageController)
         imageController.snp.makeConstraints { make in
