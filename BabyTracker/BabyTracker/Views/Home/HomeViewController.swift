@@ -67,6 +67,7 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "feeding_all"), for: .normal)
         button.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(tapFeeding), for: .touchUpInside)
         return button
     }()
     
@@ -157,6 +158,10 @@ class HomeViewController: UIViewController {
     @objc func handleEditProfile(){
         print("sdfsdf")
         let vc = EditViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func tapFeeding(){
+        let vc = FeedingViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

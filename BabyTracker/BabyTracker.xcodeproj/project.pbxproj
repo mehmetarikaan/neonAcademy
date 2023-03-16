@@ -12,6 +12,7 @@
 		B7B9944F29C313B50080533A /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9944E29C313B50080533A /* FormModel.swift */; };
 		B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945129C3216D0080533A /* HomeViewController.swift */; };
 		B7B9945529C349DB0080533A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945429C349DB0080533A /* EditViewController.swift */; };
+		B7B9945929C354000080533A /* FeedingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945829C354000080533A /* FeedingViewController.swift */; };
 		B7CA3DBD29C04AFF009CFC1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */; };
 		B7CA3DBF29C04AFF009CFC1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */; };
 		B7CA3DC429C04AFF009CFC1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CA3DC229C04AFF009CFC1A /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		B7B9944E29C313B50080533A /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		B7B9945129C3216D0080533A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B7B9945429C349DB0080533A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		B7B9945829C354000080533A /* FeedingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingViewController.swift; sourceTree = "<group>"; };
 		B7CA3DB929C04AFF009CFC1A /* BabyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,26 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
+		B7B9945629C353C50080533A /* Feeding */ = {
+			isa = PBXGroup;
+			children = (
+				B7B9945829C354000080533A /* FeedingViewController.swift */,
+			);
+			path = Feeding;
+			sourceTree = "<group>";
+		};
+		B7B9945729C353D00080533A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */,
+				B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */,
+				B7CA3DC229C04AFF009CFC1A /* Main.storyboard */,
+				B7CA3DC529C04B00009CFC1A /* Assets.xcassets */,
+				B7CA3DC729C04B00009CFC1A /* LaunchScreen.storyboard */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		B7CA3DB029C04AFF009CFC1A = {
 			isa = PBXGroup;
 			children = (
@@ -114,14 +136,10 @@
 		B7CA3DBB29C04AFF009CFC1A /* BabyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				B7B9945729C353D00080533A /* Core */,
 				B7CA3DD229C04B35009CFC1A /* CustomViews */,
 				B7CA3DD129C04B20009CFC1A /* Models */,
 				B7CA3DD029C04B13009CFC1A /* Views */,
-				B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */,
-				B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */,
-				B7CA3DC229C04AFF009CFC1A /* Main.storyboard */,
-				B7CA3DC529C04B00009CFC1A /* Assets.xcassets */,
-				B7CA3DC729C04B00009CFC1A /* LaunchScreen.storyboard */,
 				B7CA3DCA29C04B00009CFC1A /* Info.plist */,
 			);
 			path = BabyTracker;
@@ -130,6 +148,7 @@
 		B7CA3DD029C04B13009CFC1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7B9945629C353C50080533A /* Feeding */,
 				B7B9945329C349A20080533A /* Edit */,
 				B7B9945029C3214F0080533A /* Home */,
 				B738D74229C1D5140077711E /* Login */,
@@ -258,6 +277,7 @@
 				B7CA3DE529C098BA009CFC1A /* InAppViewController.swift in Sources */,
 				B7CA3DBF29C04AFF009CFC1A /* SceneDelegate.swift in Sources */,
 				B738D74429C1D5550077711E /* LoginInformationViewController.swift in Sources */,
+				B7B9945929C354000080533A /* FeedingViewController.swift in Sources */,
 				B7CA3DE129C050D7009CFC1A /* OnboardingThreeViewController.swift in Sources */,
 				B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */,
 				B7CA3DD629C04C0E009CFC1A /* OnboardingViewController.swift in Sources */,

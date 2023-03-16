@@ -9,7 +9,7 @@ import UIKit
 
 final class CustomTextField: UITextField {
 
-    private let indentView = UIView(frame: CGRect(x: 0, y:0, width: 10, height: 10))
+    private let indentView = UIView(frame: CGRect(x: 0, y:0, width: 20, height: 10))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
