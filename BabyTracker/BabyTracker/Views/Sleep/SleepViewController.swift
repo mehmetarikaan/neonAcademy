@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class SleepViewController: UIViewController {
     
@@ -107,7 +108,29 @@ class SleepViewController: UIViewController {
     }
     
     @objc func tapedSaveButton(){
-        
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let saveData = NSEntityDescription.insertNewObject(forEntityName: "Sleep", into: context)
+            
+            //Save core data
+            saveData.setValue(String(feelSleepField.text!), forKey: "fellSleep")
+            saveData.setValue(String(wokeUpField.text!), forKey: "wokeUp")
+            saveData.setValue(String(noteField.text!), forKey: "note")
+            
+            //saveData.setValue(UUID(), forKey: "id")
+            
+    //        if let ages = Int(ageTextField.text!){
+    //            saveData.setValue(ages, forKey: "age")
+    //        }
+            
+            do {
+                try context.save()
+                print("kaydedili karsimmmmm")
+            } catch {
+                print("hatasız kul olmaz kardes")
+            }
+            let vc = HomeViewController()
+            navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func valueChangedFeelSleep(sender: UIDatePicker){

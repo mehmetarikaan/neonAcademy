@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B738D74429C1D5550077711E /* LoginInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738D74329C1D5550077711E /* LoginInformationViewController.swift */; };
 		B738D74629C1E8DD0077711E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738D74529C1E8DD0077711E /* CustomTextField.swift */; };
+		B743EDA329C4403D00B170E9 /* BabyTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B743EDA129C4403D00B170E9 /* BabyTracker.xcdatamodeld */; };
+		B743EDA529C4869800B170E9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743EDA429C4869800B170E9 /* SettingsViewController.swift */; };
 		B7B9944F29C313B50080533A /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9944E29C313B50080533A /* FormModel.swift */; };
 		B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945129C3216D0080533A /* HomeViewController.swift */; };
 		B7B9945529C349DB0080533A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945429C349DB0080533A /* EditViewController.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		B738D74329C1D5550077711E /* LoginInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInformationViewController.swift; sourceTree = "<group>"; };
 		B738D74529C1E8DD0077711E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B743EDA229C4403D00B170E9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B743EDA429C4869800B170E9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B7B9944E29C313B50080533A /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		B7B9945129C3216D0080533A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B7B9945429C349DB0080533A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		B7B9945729C353D00080533A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B743EDA129C4403D00B170E9 /* BabyTracker.xcdatamodeld */,
 				B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */,
 				B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */,
 				B7CA3DC229C04AFF009CFC1A /* Main.storyboard */,
@@ -150,6 +155,7 @@
 		B7B9946429C3DA1B0080533A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				B743EDA429C4869800B170E9 /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				B7CA3DDF29C050C4009CFC1A /* OnboardingTwoViewController.swift in Sources */,
 				B738D74629C1E8DD0077711E /* CustomTextField.swift in Sources */,
 				B7CA3DD829C04D7A009CFC1A /* OnboardingSlide.swift in Sources */,
+				B743EDA529C4869800B170E9 /* SettingsViewController.swift in Sources */,
 				B7B9944F29C313B50080533A /* FormModel.swift in Sources */,
 				B7CA3DBD29C04AFF009CFC1A /* AppDelegate.swift in Sources */,
 				B7CA3DDA29C05000009CFC1A /* OnboardingOneViewController.swift in Sources */,
@@ -324,6 +331,7 @@
 				B7B9945929C354000080533A /* FeedingViewController.swift in Sources */,
 				B7CA3DE129C050D7009CFC1A /* OnboardingThreeViewController.swift in Sources */,
 				B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */,
+				B743EDA329C4403D00B170E9 /* BabyTracker.xcdatamodeld in Sources */,
 				B7CA3DD629C04C0E009CFC1A /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +582,19 @@
 			productName = Hero;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B743EDA129C4403D00B170E9 /* BabyTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B743EDA229C4403D00B170E9 /* Model.xcdatamodel */,
+			);
+			currentVersion = B743EDA229C4403D00B170E9 /* Model.xcdatamodel */;
+			path = BabyTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B7CA3DB129C04AFF009CFC1A /* Project object */;
 }

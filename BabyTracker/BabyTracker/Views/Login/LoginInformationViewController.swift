@@ -12,11 +12,13 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 final class LoginInformationViewController: UIViewController {
     //MARK: - Properties
     private var formModel = FormModel()
     var formIsNewValid = false
+    var isChild = true
     private var profileImage: UIImage?
     lazy var plusPhotoButton: UIButton = {
         var button = UIButton()
@@ -194,17 +196,34 @@ final class LoginInformationViewController: UIViewController {
     }
     
     @objc func handleContinueButton(){
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let saveData = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+        
+        //Save core data
+        saveData.setValue(babyFullNameTextField.text!, forKey: "babyFullName")
+        saveData.setValue(String(birthDateTextField.text!), forKey: "birthDate")
+        saveData.setValue(String(timeofBirthTextField.text!), forKey: "timeOfBirth")
+        saveData.setValue(isChild.self, forKey: "isGirl")
+        saveData.setValue(String(dueDateTextField.text!), forKey: "dueDate")
+        
+        let imagePress = plusPhotoButton.currentImage?.jpegData(compressionQuality: 0.5)
+        saveData.setValue(imagePress, forKey: "profileImage")
+        //saveData.setValue(UUID(), forKey: "id")
+        
+//        if let ages = Int(ageTextField.text!){
+//            saveData.setValue(ages, forKey: "age")
+//        }
+        
+        do {
+            try context.save()
+            print("kaydedili karsimmmmm")
+        } catch {
+            print("hatasız kul olmaz kardes")
+        }
         let vc = HomeViewController()
         navigationController?.pushViewController(vc, animated: true)
-//        if formIsNewValid {
-//            continueButton.isEnabled = true
-//            continueButton.backgroundColor = .purple
-//            print("purple")
-//        } else {
-//            continueButton.isEnabled = false
-//            continueButton.backgroundColor = .gray
-//            print("gray")
-//        }
     }
     
     @objc func handleGirlBabyButton(){
@@ -212,13 +231,14 @@ final class LoginInformationViewController: UIViewController {
             girlBabyButton.isSelected = false
         } else {
             girlBabyButton.isSelected = true
+            isChild = false
             boyBabyButton.isSelected = false
         }
     }
-    
     @objc func handleBoyBabyButton(){
         if boyBabyButton.isSelected == true {
             boyBabyButton.isSelected = false
+            isChild = true
         } else {
             boyBabyButton.isSelected = true
             girlBabyButton.isSelected = false

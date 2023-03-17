@@ -13,9 +13,11 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class HomeViewController: UIViewController {
     //MARK: - Properties
+    var userArray = [String]()
     lazy var plusPhotoButton: UIButton = {
         var button = UIButton()
         button.setImage(UIImage(named: "img_photo"), for: .normal)
@@ -39,7 +41,7 @@ class HomeViewController: UIViewController {
     
     lazy var profileNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Joe"
+        label.text = ""
         label.textColor = #colorLiteral(red: 0.29512766, green: 0.1368008852, blue: 0.7957670093, alpha: 1)
         label.font = .systemFont(ofSize: 25, weight: .semibold)
         return label
@@ -94,6 +96,8 @@ class HomeViewController: UIViewController {
         self.navigationItem.hidesBackButton = false
         configureBarItems()
         createdHomeUI()
+        fetchData()
+        print("viewDidLoad")
     }
     //MARK: - Actions
     func createdHomeUI(){
@@ -105,6 +109,10 @@ class HomeViewController: UIViewController {
             make.width.equalTo(74)
             make.centerX.equalToSuperview()
         }
+        plusPhotoButton.layer.cornerRadius = 74/2
+        plusPhotoButton.clipsToBounds = true
+        plusPhotoButton.contentMode = .scaleAspectFill
+        
         view.addSubview(editProfileButton)
         editProfileButton.snp.makeConstraints { make in
             make.top.equalTo(plusPhotoButton.snp.bottom).offset(12)
@@ -149,6 +157,32 @@ class HomeViewController: UIViewController {
             make.right.equalToSuperview().inset(24)
         }
     }
+    func fetchData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        do{
+            let results = try context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject] {
+                if let name = result.value(forKey: "babyFullName") as? String {
+                    //self.userArray.append(name)
+//                    context.delete(result)
+//                    do {
+//                        try context.save()
+//                    } catch {
+//
+//                    }
+                    profileNameLabel.text = name
+                }
+                if let profileImageFetch = result.value(forKey: "profileImage") as? Data {
+                    plusPhotoButton.setImage(UIImage(data: profileImageFetch), for: .normal)
+                }
+            }
+        } catch {
+            
+        }
+    }
     func configureBarItems(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_settings"), target: self, action: #selector(handleSetting))
         navigationItem.leftBarButtonItem?.tintColor = .black
@@ -157,7 +191,8 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
     @objc func handleSetting(){
-        
+        let vc = SettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     @objc func handleCalender(){
         let vc = CalenderViewController()

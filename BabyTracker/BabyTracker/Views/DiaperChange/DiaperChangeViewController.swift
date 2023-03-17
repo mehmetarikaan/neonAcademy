@@ -10,6 +10,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class DiaperChangeViewController: UIViewController {
     //MARK: - Properties
@@ -132,7 +133,6 @@ class DiaperChangeViewController: UIViewController {
             make.top.equalTo(mixedButton.snp.bottom).offset(20)
             make.left.equalTo(mixedButton.snp.left)
         }
-        
         view.addSubview(noteField)
         noteField.snp.makeConstraints { make in
             make.top.equalTo(dryButton.snp.bottom).offset(50)
@@ -140,7 +140,6 @@ class DiaperChangeViewController: UIViewController {
             make.left.equalToSuperview().offset(24)
             make.height.equalTo(264)
         }
-        
         view.addSubview(saveButton)
         saveButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
@@ -148,7 +147,6 @@ class DiaperChangeViewController: UIViewController {
             make.left.equalToSuperview().offset(40)
             make.height.equalTo(saveButton.snp.width).multipliedBy(0.18)
         }
-
     }
     @objc func handleWetButton(){
         if wetButton.isSelected == true {
@@ -190,20 +188,38 @@ class DiaperChangeViewController: UIViewController {
             mixedButton.isSelected = false
         }
     }
-    
     @objc func tapedSaveButton(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let saveData = NSEntityDescription.insertNewObject(forEntityName: "Diaper", into: context)
         
+        //Save core data
+        saveData.setValue(String(timeField.text!), forKey: "time")
+        //saveData.setValue(String(noteField.text!), forKey: "amount")
+        saveData.setValue(String(noteField.text!), forKey: "note")
+        
+        //saveData.setValue(UUID(), forKey: "id")
+        
+//        if let ages = Int(ageTextField.text!){
+//            saveData.setValue(ages, forKey: "age")
+//        }
+        
+        do {
+            try context.save()
+            print("kaydedili karsimmmmm")
+        } catch {
+            print("hatasız kul olmaz kardes")
+        }
+        let vc = HomeViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
     @objc func configureDiaperNavigation(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_back")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(backButtonHome))
         navigationItem.titleView = UIImageView(image: UIImage(named: "img_diaper")?.withRenderingMode(.alwaysOriginal))
     }
-
     @objc func backButtonHome(){
         navigationController?.popViewController(animated: true)
     }
-    
     @objc func valueChangedtimePicker(sender: UIDatePicker){
         let datePickerTime = DateFormatter()
         datePickerTime.dateStyle = .none

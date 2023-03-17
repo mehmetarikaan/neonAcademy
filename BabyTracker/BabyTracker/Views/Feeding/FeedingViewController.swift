@@ -10,6 +10,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class FeedingViewController: UIViewController {
     
@@ -104,8 +105,32 @@ class FeedingViewController: UIViewController {
 
     }
     
+    
+    
     @objc func tapedSaveButton(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let saveData = NSEntityDescription.insertNewObject(forEntityName: "Feeding", into: context)
         
+        //Save core data
+        saveData.setValue(String(timeField.text!), forKey: "time")
+        saveData.setValue(String(amountField.text!), forKey: "amount")
+        saveData.setValue(String(noteField.text!), forKey: "note")
+        
+        //saveData.setValue(UUID(), forKey: "id")
+        
+//        if let ages = Int(ageTextField.text!){
+//            saveData.setValue(ages, forKey: "age")
+//        }
+        
+        do {
+            try context.save()
+            print("kaydedili karsimmmmm")
+        } catch {
+            print("hatasız kul olmaz kardes")
+        }
+        let vc = HomeViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func valueChangedtimeFieldPicker(sender: UIDatePicker){
