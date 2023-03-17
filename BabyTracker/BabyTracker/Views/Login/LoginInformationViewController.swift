@@ -104,6 +104,8 @@ final class LoginInformationViewController: UIViewController {
     //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationItem.hidesBackButton = true
         setupLoginUI()
         hideKeyboardWhenTappedAround()
         checkFormStatus()
@@ -192,15 +194,17 @@ final class LoginInformationViewController: UIViewController {
     }
     
     @objc func handleContinueButton(){
-        if formIsNewValid {
-            continueButton.isEnabled = true
-            continueButton.backgroundColor = .purple
-            print("purple")
-        } else {
-            continueButton.isEnabled = false
-            continueButton.backgroundColor = .gray
-            print("gray")
-        }
+        let vc = HomeViewController()
+        navigationController?.pushViewController(vc, animated: true)
+//        if formIsNewValid {
+//            continueButton.isEnabled = true
+//            continueButton.backgroundColor = .purple
+//            print("purple")
+//        } else {
+//            continueButton.isEnabled = false
+//            continueButton.backgroundColor = .gray
+//            print("gray")
+//        }
     }
     
     @objc func handleGirlBabyButton(){

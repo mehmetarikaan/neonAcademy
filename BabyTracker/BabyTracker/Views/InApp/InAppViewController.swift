@@ -5,22 +5,16 @@
 //  Created by Mehmet Arıkan on 14.03.2023.
 //
 
+//FIXME: - Hem bu sayfa hem next sayfasının navigation barını ayarla
+// en alttaki butonların targetlerı boş - ekle
+//revenuecat ekle
+// weekly ve diğerlerine tıklayınca highleted geliyo onu kaldır
+
 import UIKit
 import SnapKit
 
 class InAppViewController: UIViewController {
     //MARK: - Properties
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Get Premium"
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
-        label.textColor = .black
-        label.textAlignment = .center
-        label.textColor = #colorLiteral(red: 0.3642928302, green: 0.06763256341, blue: 0.967459023, alpha: 1)
-        return label
-    }()
-    
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "btn_close"), for: .normal)
@@ -36,6 +30,17 @@ class InAppViewController: UIViewController {
     lazy var imageDotOne: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "icon_matter")
+        return image
+    }()
+    
+    lazy var imageCub: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "img_cubuk")
+        return image
+    }()
+    lazy var imageCubTwo: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "img_cubuk")
         return image
     }()
     lazy var labelOne: UILabel = {
@@ -85,78 +90,146 @@ class InAppViewController: UIViewController {
         return bgView
     }()
     
-    lazy var weeklyImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "img_premium")
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
-    
-    lazy var weeklyLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Weekly"
-        label.numberOfLines = 0
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    lazy var weeklyPriceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "$10"
-        label.numberOfLines = 0
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        label.textAlignment = .center
-        return label
-    }()
-
-    
-    lazy var monthlyImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "img_premium")
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
-    
-    lazy var annualImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "img_premium")
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
-    
-    lazy var startButton: CustomButton = {
+    @objc lazy var startButton: CustomButton = {
        let button = CustomButton()
         button.setTitle("Start", for: .normal)
+        button.addTarget(self, action: #selector(startedButton), for: .touchUpInside)
         return button
     }()
     
+    lazy var privacyPolicyButton: UILabel = {
+        let label = UILabel()
+        label.text = "Privacy Policy"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 10, weight: .regular)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(InAppViewController.handlePrivacyPolicy))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+        label.isEnabled = true
+        label.underline()
+        return label
+    }()
+    
+    lazy var restorePuchaseButton: UILabel = {
+        let label = UILabel()
+        label.text = "Restore Purchase"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 10, weight: .regular)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(InAppViewController.handleRestorePuchase))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+        label.isEnabled = true
+        label.underline()
+        return label
+    }()
+    lazy var termsOfUseButton: UILabel = {
+        let label = UILabel()
+        label.text = "Terms of Use"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 10, weight: .regular)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(InAppViewController.handleTermsOfUse))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+        label.isEnabled = true
+        label.underline()
+        return label
+    }()
+    
+    lazy var weeklyButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "img_unselected_weekly")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "img_selected_weekly")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
+        button.addTarget(self, action: #selector(handleWeeklyButton), for: UIControl.Event.touchUpInside)
+        button.contentMode = .scaleAspectFit
+        return button
+    }()
+    lazy var monthlyButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "img_unselected_monthly")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "img_selected_monthly")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
+        button.addTarget(self, action: #selector(handleMonthlyButton), for: UIControl.Event.touchUpInside)
+        button.contentMode = .scaleAspectFit
+        return button
+    }()
+    lazy var annualButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "img_unselected_annual")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "img_selected_annual")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
+        button.addTarget(self, action: #selector(handleAnnualButton), for: UIControl.Event.touchUpInside)
+        button.contentMode = .scaleAspectFit
+        return button
+    }()
     //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.hidesBackButton = true
         configureUI()
+        configureNavigation()
     }
+    
     //MARK: - Helpers
+    @objc func handleWeeklyButton(){
+        if weeklyButton.isSelected == true {
+            weeklyButton.isSelected = false
+        } else {
+            weeklyButton.isSelected = true
+            monthlyButton.isSelected = false
+            annualButton.isSelected = false
+        }
+    }
+    @objc func handleMonthlyButton(){
+        if monthlyButton.isSelected == true {
+            monthlyButton.isSelected = false
+        } else {
+            monthlyButton.isSelected = true
+            weeklyButton.isSelected = false
+            annualButton.isSelected = false
+        }
+    }
+
+    @objc func handleAnnualButton(){
+        if annualButton.isSelected == true {
+            annualButton.isSelected = false
+        } else {
+            annualButton.isSelected = true
+            weeklyButton.isSelected = false
+            monthlyButton.isSelected = false
+        }
+    }
+
+    @objc func handleRestorePuchase(){
+
+    }
+    
+    @objc func handlePrivacyPolicy(){
+        
+    }
+    
+    @objc func handleTermsOfUse(){
+        
+    }
+    @objc func configureNavigation(){
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_close")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(backButtonHome))
+        navigationItem.titleView = UIImageView(image: UIImage(named: "img_premiumTitle")?.withRenderingMode(.alwaysOriginal))
+    }
+    @objc func backButtonHome(){
+        let vc = LoginInformationViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func startedButton(){
+        let vc = LoginInformationViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     func configureUI(){
         view.backgroundColor = .white
         view.addSubview(backgroundView)
         
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.centerX.equalToSuperview()
-        }
-        view.addSubview(cancelButton)
-        cancelButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.trailing.equalToSuperview().inset(20)
-        }
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(28)
-            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(18)
+            make.centerX.equalToSuperview().offset(-20)
         }
         
         let stackOne = UIStackView(arrangedSubviews: [imageDotOne, labelOne])
@@ -175,90 +248,75 @@ class InAppViewController: UIViewController {
         view.addSubview(stackThree)
         
         
-        
-        // Label'ların tek stack'te toplanması
-//        let stackLabel = UIStackView(arrangedSubviews: [stackOne, stackTwo, stackThree])
-//        stackLabel.axis = .vertical
-//        stackLabel.distribution = .equalSpacing
-//        stackLabel.spacing = 1
-        
-        
         stackOne.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(8)
-            make.leading.equalTo(titleLabel.snp.leading).offset(-25)
+            make.leading.equalTo(80)
         }
         
         stackTwo.snp.makeConstraints { make in
             make.top.equalTo(stackOne.snp.top).offset(32)
-            make.leading.equalTo(titleLabel.snp.leading).offset(-25)
+            make.leading.equalTo(80)
         }
         stackThree.snp.makeConstraints { make in
             make.top.equalTo(stackTwo.snp.top).offset(32)
-            make.leading.equalTo(titleLabel.snp.leading).offset(-25)
+            make.leading.equalTo(80)
         }
         backgroundView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp_centerYWithinMargins).offset(-24)
+            make.top.equalTo(stackThree.snp.bottom).offset(16)
             make.centerX.equalTo(view.center)
             make.height.equalToSuperview()
             make.width.equalToSuperview()
         }
-//        view.addSubview(stackLabel)
-//        stackLabel.snp.makeConstraints { make in
-//            make.top.equalTo(imageView.snp.bottom).offset(28)
-//            make.leading.equalTo(titleLabel.snp.leading).offset(-25)
-//            make.bottom.equalTo(backgroundView.snp.top).offset(5)
-//        }
+        view.addSubview(weeklyButton)
+        weeklyButton.snp.makeConstraints { make in
+            make.top.equalTo(backgroundView.snp.top).offset(24)
+            make.left.equalTo(28)
+            make.right.equalTo(-28)
+        }
+        view.addSubview(monthlyButton)
+        monthlyButton.snp.makeConstraints { make in
+            make.top.equalTo(weeklyButton.snp.bottom).offset(32)
+            make.left.equalTo(28)
+            make.right.equalTo(-28)
+        }
+        view.addSubview(annualButton)
+        annualButton.snp.makeConstraints { make in
+            make.top.equalTo(monthlyButton.snp.bottom).offset(32)
+            make.left.equalTo(28)
+            make.right.equalTo(-28)
+        }
+        view.addSubview(privacyPolicyButton)
+        privacyPolicyButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.left.equalToSuperview().offset(64)
+        }
+        view.addSubview(imageCub)
+        imageCub.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.left.equalTo(privacyPolicyButton.snp.right).offset(8)
+        }
+        view.addSubview(restorePuchaseButton)
+        restorePuchaseButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.left.equalTo(imageCub.snp.right).offset(8)
+        }
+        view.addSubview(imageCubTwo)
+        imageCubTwo.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.left.equalTo(restorePuchaseButton.snp.right).offset(8)
+        }
+        view.addSubview(termsOfUseButton)
+        termsOfUseButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.left.equalTo(imageCubTwo.snp.right).offset(8)
+        }
         view.addSubview(startButton)
         startButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(82)
+            make.bottom.equalTo(privacyPolicyButton.snp.top).offset(-20)
             make.left.equalToSuperview().offset(40)
             make.right.equalToSuperview().inset(40)
             make.height.equalTo(startButton.snp.width).multipliedBy(0.18)
         }
-      
-        let stackPremium = UIStackView(arrangedSubviews: [weeklyImage, monthlyImage, annualImage])
-        stackPremium.axis = .vertical
-        stackPremium.distribution = .fillEqually
-        stackPremium.spacing = 10
-        
-        backgroundView.addSubview(stackPremium)
-        stackPremium.snp.makeConstraints { make in
-            make.top.equalTo(backgroundView.snp.top).offset(20)
-            make.bottom.equalTo(startButton.snp.top).offset(-20)
-            make.left.equalToSuperview().offset(30)
-            make.right.equalToSuperview().inset(30)
-        }
-        backgroundView.addSubview(weeklyLabel)
-        weeklyLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(weeklyImage.snp_centerYWithinMargins)
-            make.leading.equalTo(weeklyImage.snp_leadingMargin).offset(30)
-        }
-        
-        //Stakcsiz constrait
-//        backgroundView.addSubview(weeklyImage)
-//        weeklyImage.snp.makeConstraints { make in
-//            make.top.equalTo(backgroundView.snp.top).offset(30)
-//            make.centerX.equalTo(backgroundView)
-//            make.height.equalTo(weeklyImage.snp.width).dividedBy(4.8)
-//            make.leading.equalToSuperview().offset(28)
-//            make.trailing.equalToSuperview().inset(28)
-//        }
-//        backgroundView.addSubview(monthlyImage)
-//        monthlyImage.snp.makeConstraints { make in
-//            make.top.equalTo(weeklyImage.snp.bottom).offset(36)
-//            make.centerX.equalTo(backgroundView)
-//            make.height.equalTo(weeklyImage.snp.width).dividedBy(4.8)
-//            make.leading.equalToSuperview().offset(28)
-//            make.trailing.equalToSuperview().inset(28)
-//        }
-//        backgroundView.addSubview(annualImage)
-//        annualImage.snp.makeConstraints { make in
-//            make.top.equalTo(monthlyImage.snp.bottom).offset(36)
-//            make.centerX.equalTo(backgroundView)
-//            make.height.equalTo(weeklyImage.snp.width).dividedBy(4.8)
-//            make.leading.equalToSuperview().offset(28)
-//            make.trailing.equalToSuperview().inset(28)
-//        }
-        
+    
     }
 }

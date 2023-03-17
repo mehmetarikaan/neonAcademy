@@ -74,6 +74,7 @@ class HomeViewController: UIViewController {
     lazy var diaperButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "diaper_all"), for: .normal)
+        button.addTarget(self, action: #selector(tapDiaper), for: .touchUpInside)
         button.contentMode = .scaleAspectFit
         return button
     }()
@@ -81,6 +82,7 @@ class HomeViewController: UIViewController {
     lazy var sleepButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "sleep_all"), for: .normal)
+        button.addTarget(self, action: #selector(tapSleep), for: .touchUpInside)
         button.contentMode = .scaleAspectFit
         return button
     }()
@@ -88,6 +90,8 @@ class HomeViewController: UIViewController {
     //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.hidesBackButton = false
         configureBarItems()
         createdHomeUI()
     }
@@ -149,11 +153,15 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_settings"), target: self, action: #selector(handleSetting))
         navigationItem.leftBarButtonItem?.tintColor = .black
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_calender"), target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_calender"), target: self, action: #selector(handleCalender))
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
     @objc func handleSetting(){
         
+    }
+    @objc func handleCalender(){
+        let vc = CalenderViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     @objc func handleEditProfile(){
         print("sdfsdf")
@@ -164,6 +172,15 @@ class HomeViewController: UIViewController {
         let vc = FeedingViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    @objc func tapDiaper(){
+        let vc = DiaperChangeViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func tapSleep(){
+        let vc = SleepViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
 }
 
 //MARK: Extension - UILabel

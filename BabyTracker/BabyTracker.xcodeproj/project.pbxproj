@@ -13,6 +13,9 @@
 		B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945129C3216D0080533A /* HomeViewController.swift */; };
 		B7B9945529C349DB0080533A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945429C349DB0080533A /* EditViewController.swift */; };
 		B7B9945929C354000080533A /* FeedingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945829C354000080533A /* FeedingViewController.swift */; };
+		B7B9945C29C3700A0080533A /* DiaperChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945B29C3700A0080533A /* DiaperChangeViewController.swift */; };
+		B7B9946029C3A25C0080533A /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945F29C3A25C0080533A /* SleepViewController.swift */; };
+		B7B9946329C3B8C00080533A /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9946229C3B8C00080533A /* CalenderViewController.swift */; };
 		B7CA3DBD29C04AFF009CFC1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */; };
 		B7CA3DBF29C04AFF009CFC1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */; };
 		B7CA3DC429C04AFF009CFC1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CA3DC229C04AFF009CFC1A /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 		B7B9945129C3216D0080533A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B7B9945429C349DB0080533A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		B7B9945829C354000080533A /* FeedingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingViewController.swift; sourceTree = "<group>"; };
+		B7B9945B29C3700A0080533A /* DiaperChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaperChangeViewController.swift; sourceTree = "<group>"; };
+		B7B9945F29C3A25C0080533A /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
+		B7B9946229C3B8C00080533A /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		B7CA3DB929C04AFF009CFC1A /* BabyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +123,37 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		B7B9945A29C36FE70080533A /* DiaperChange */ = {
+			isa = PBXGroup;
+			children = (
+				B7B9945B29C3700A0080533A /* DiaperChangeViewController.swift */,
+			);
+			path = DiaperChange;
+			sourceTree = "<group>";
+		};
+		B7B9945E29C3A24C0080533A /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				B7B9945F29C3A25C0080533A /* SleepViewController.swift */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		B7B9946129C3B8520080533A /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				B7B9946229C3B8C00080533A /* CalenderViewController.swift */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
+		B7B9946429C3DA1B0080533A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		B7CA3DB029C04AFF009CFC1A = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +185,10 @@
 		B7CA3DD029C04B13009CFC1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7B9946429C3DA1B0080533A /* Settings */,
+				B7B9946129C3B8520080533A /* Calender */,
+				B7B9945E29C3A24C0080533A /* Sleep */,
+				B7B9945A29C36FE70080533A /* DiaperChange */,
 				B7B9945629C353C50080533A /* Feeding */,
 				B7B9945329C349A20080533A /* Edit */,
 				B7B9945029C3214F0080533A /* Home */,
@@ -272,10 +313,13 @@
 				B7B9944F29C313B50080533A /* FormModel.swift in Sources */,
 				B7CA3DBD29C04AFF009CFC1A /* AppDelegate.swift in Sources */,
 				B7CA3DDA29C05000009CFC1A /* OnboardingOneViewController.swift in Sources */,
+				B7B9946329C3B8C00080533A /* CalenderViewController.swift in Sources */,
 				B7B9945529C349DB0080533A /* EditViewController.swift in Sources */,
 				B7CA3DE329C05E32009CFC1A /* CustomButton.swift in Sources */,
+				B7B9946029C3A25C0080533A /* SleepViewController.swift in Sources */,
 				B7CA3DE529C098BA009CFC1A /* InAppViewController.swift in Sources */,
 				B7CA3DBF29C04AFF009CFC1A /* SceneDelegate.swift in Sources */,
+				B7B9945C29C3700A0080533A /* DiaperChangeViewController.swift in Sources */,
 				B738D74429C1D5550077711E /* LoginInformationViewController.swift in Sources */,
 				B7B9945929C354000080533A /* FeedingViewController.swift in Sources */,
 				B7CA3DE129C050D7009CFC1A /* OnboardingThreeViewController.swift in Sources */,
