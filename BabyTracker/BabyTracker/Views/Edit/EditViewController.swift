@@ -6,23 +6,23 @@
 //
 
 //FIXME: -
-// CoreData'ya veri kaydet
+
+// CoreDatadaki verileri id'siz tutuyorum. Bundan dolayı edit sayfasındaki save butonu ile veriyi yeni veri olarak kaydetmiş oluyorum. id ekle bunu fixle
 // Klavye etkinliklerini kontrol et ve en alttaki textfield klavye ile yukarı kaysın.
 // Save button'un aktif ve pasif etkinliklerini yap
 // lottie ile loading ekle
-// core data bağlantılarını yap ve coredatadaki veriyi textfieldlara al
-// verileri güncelle
 // Save sonrası saved göster
-
 
 import UIKit
 import SnapKit
+import CoreData
 
 final class EditViewController: UIViewController {
     //MARK: - Properties
     private var formModel = FormModel()
     var formIsNewValid = false
     private var profileImage: UIImage?
+    var isChild: Bool?
     lazy var plusPhotoButton: UIButton = {
         var button = UIButton()
         button.setImage(UIImage(named: "btn_addphoto-1"), for: .normal)
@@ -107,12 +107,16 @@ final class EditViewController: UIViewController {
         return button
     }()
     //MARK: - Lifeycle
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLoginUI()
         hideKeyboardWhenTappedAround()
         checkFormStatus()
         formIsNewValid = false
+        fetchData()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_back")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(backButtonHome))
     }
     //MARK: - Helpers
@@ -125,6 +129,9 @@ final class EditViewController: UIViewController {
             make.width.equalTo(134)
             make.centerX.equalToSuperview()
         }
+        plusPhotoButton.layer.cornerRadius = 134/2
+        plusPhotoButton.clipsToBounds = true
+        plusPhotoButton.contentMode = .scaleAspectFill
         view.addSubview(backgroundView)
         backgroundView.snp.makeConstraints { make in
             make.top.equalTo(plusPhotoButton.snp.bottom).offset(50)
@@ -170,11 +177,49 @@ final class EditViewController: UIViewController {
     }
     //MARK: - Actions
     
+    func fetchData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        do{
+            let results = try context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject] {
+                if let name = result.value(forKey: "babyFullName") as? String {
+                    babyFullNameTextField.text = name
+                }
+                if let childSelected = result.value(forKey: "isGirl") as? Bool {
+                    print(childSelected)
+                    if childSelected == false{
+                        girlBabyButton.isSelected = true
+                        boyBabyButton.isSelected = false
+                    } else {
+                        boyBabyButton.isSelected = true
+                        girlBabyButton.isSelected = false
+                    }
+                }
+                if let profileImageFetch = result.value(forKey: "profileImage") as? Data {
+                    plusPhotoButton.setImage(UIImage(data: profileImageFetch), for: .normal)
+                }
+                if let birth = result.value(forKey: "birthDate") as? String {
+                    birthDateTextField.text = birth
+                }
+                if let time = result.value(forKey: "timeOfBirth") as? String {
+                    timeofBirthTextField.text = time
+                }
+                if let due = result.value(forKey: "dueDate") as? String {
+                    dueDateTextField.text = due
+                }
+            }
+        } catch {
+            print("catche yakalandın ve düştü kardeşim - fetch data")
+        }
+    }
+    
     @objc func backButtonHome(){
         navigationController?.popViewController(animated: true)
     }
 
-    
     
     //Girl and Boy button is selected func
     
@@ -208,32 +253,46 @@ final class EditViewController: UIViewController {
     }
     
     @objc func handleSaveButton(){
-        if formIsNewValid {
-            continueButton.isEnabled = true
-            continueButton.backgroundColor = .purple
-            print("purple")
-        } else {
-            continueButton.isEnabled = false
-            continueButton.backgroundColor = .gray
-            print("gray")
-        }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let saveData = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+        
+        //Save core data
+        saveData.setValue(babyFullNameTextField.text!, forKey: "babyFullName")
+        saveData.setValue(String(birthDateTextField.text!), forKey: "birthDate")
+        saveData.setValue(String(timeofBirthTextField.text!), forKey: "timeOfBirth")
+        saveData.setValue(isChild.self, forKey: "isGirl")
+        saveData.setValue(String(dueDateTextField.text!), forKey: "dueDate")
+        
+        let imagePress = plusPhotoButton.currentImage?.jpegData(compressionQuality: 0.5)
+        saveData.setValue(imagePress, forKey: "profileImage")
+            
+        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "newData"), object: nil)
+            let vc = HomeViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @objc func handleGirlBabyButton(){
         if girlBabyButton.isSelected == true {
             girlBabyButton.isSelected = false
+            isChild = false
         } else {
             girlBabyButton.isSelected = true
             boyBabyButton.isSelected = false
+            isChild = true
         }
     }
     
     @objc func handleBoyBabyButton(){
         if boyBabyButton.isSelected == true {
             boyBabyButton.isSelected = false
+            isChild = false
         } else {
             boyBabyButton.isSelected = true
             girlBabyButton.isSelected = false
+            isChild = true
         }
     }
     
@@ -267,6 +326,18 @@ final class EditViewController: UIViewController {
         picker.allowsEditing = true
         present(picker, animated: true, completion: nil)
     }
+    
+    //FIXME: - FormCheck  //PROTOCOL
+//        if formIsNewValid {
+//            continueButton.isEnabled = true
+//            continueButton.backgroundColor = .purple
+//            print("purple")
+//        } else {
+//            continueButton.isEnabled = false
+//            continueButton.backgroundColor = .gray
+//            print("gray")
+//        }
+    
 }
 
 //MARK: - Extensions

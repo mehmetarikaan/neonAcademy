@@ -18,7 +18,7 @@ final class LoginInformationViewController: UIViewController {
     //MARK: - Properties
     private var formModel = FormModel()
     var formIsNewValid = false
-    var isChild = true
+    var isChild: Bool?
     private var profileImage: UIImage?
     lazy var plusPhotoButton: UIButton = {
         var button = UIButton()
@@ -229,18 +229,20 @@ final class LoginInformationViewController: UIViewController {
     @objc func handleGirlBabyButton(){
         if girlBabyButton.isSelected == true {
             girlBabyButton.isSelected = false
+            isChild = false
         } else {
             girlBabyButton.isSelected = true
-            isChild = false
+            isChild = true
             boyBabyButton.isSelected = false
         }
     }
     @objc func handleBoyBabyButton(){
         if boyBabyButton.isSelected == true {
             boyBabyButton.isSelected = false
-            isChild = true
+            isChild = false
         } else {
             boyBabyButton.isSelected = true
+            isChild = true
             girlBabyButton.isSelected = false
         }
     }

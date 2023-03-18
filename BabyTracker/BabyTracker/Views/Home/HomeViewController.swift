@@ -8,7 +8,6 @@
 //FIXME: - Navigation itemlerin actionlarını bağla
 
 // profil resmine core data ile görseli çek
-
 //Edit Profile guster ekle
 
 import UIKit
@@ -89,6 +88,11 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchData), name: NSNotification.Name("newData"), object: nil)
+        print("viewWillAppear")
+    }
+    
     //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,7 +161,7 @@ class HomeViewController: UIViewController {
             make.right.equalToSuperview().inset(24)
         }
     }
-    func fetchData(){
+    @objc func fetchData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")

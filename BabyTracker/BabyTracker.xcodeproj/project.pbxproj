@@ -11,6 +11,7 @@
 		B738D74629C1E8DD0077711E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738D74529C1E8DD0077711E /* CustomTextField.swift */; };
 		B743EDA329C4403D00B170E9 /* BabyTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B743EDA129C4403D00B170E9 /* BabyTracker.xcdatamodeld */; };
 		B743EDA529C4869800B170E9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743EDA429C4869800B170E9 /* SettingsViewController.swift */; };
+		B77E426729C60FCC00FDA9F0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E426629C60FCC00FDA9F0 /* CustomCell.swift */; };
 		B7B9944F29C313B50080533A /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9944E29C313B50080533A /* FormModel.swift */; };
 		B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945129C3216D0080533A /* HomeViewController.swift */; };
 		B7B9945529C349DB0080533A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945429C349DB0080533A /* EditViewController.swift */; };
@@ -39,6 +40,7 @@
 		B738D74529C1E8DD0077711E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B743EDA229C4403D00B170E9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B743EDA429C4869800B170E9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B77E426629C60FCC00FDA9F0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		B7B9944E29C313B50080533A /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		B7B9945129C3216D0080533A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B7B9945429C349DB0080533A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				B7CA3DE229C05E32009CFC1A /* CustomButton.swift */,
 				B738D74529C1E8DD0077711E /* CustomTextField.swift */,
+				B77E426629C60FCC00FDA9F0 /* CustomCell.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				B7CA3DE129C050D7009CFC1A /* OnboardingThreeViewController.swift in Sources */,
 				B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */,
 				B743EDA329C4403D00B170E9 /* BabyTracker.xcdatamodeld in Sources */,
+				B77E426729C60FCC00FDA9F0 /* CustomCell.swift in Sources */,
 				B7CA3DD629C04C0E009CFC1A /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

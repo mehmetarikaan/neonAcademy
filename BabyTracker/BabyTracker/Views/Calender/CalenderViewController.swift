@@ -51,11 +51,20 @@ class CalenderViewController: UIViewController {
         button.contentMode = .scaleAspectFit
         return button
     }()
-
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .systemGray
+        tableView.allowsSelection = true
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+        return tableView
+    }()
+    
     //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         configureCalenderNavigation()
         hideKeyboardWhenTappedAround()
         calenderSetupUI()
@@ -88,6 +97,13 @@ class CalenderViewController: UIViewController {
         sleepButton.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(24)
             make.left.equalTo(diaperButton.snp.right).offset(56)
+        }
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(titleAllButton.snp.bottom).offset(24)
+            make.left.equalTo(24)
+            make.right.equalTo(-24)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -139,5 +155,20 @@ class CalenderViewController: UIViewController {
     }
     @objc func backButtonHome(){
         navigationController?.popViewController(animated: true)
+    }
+}
+
+//MARK: - TableView Extensions
+
+extension CalenderViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell else {
+            fatalError("tableview custom cell patladı canım")
+        }
+        return cell
     }
 }
