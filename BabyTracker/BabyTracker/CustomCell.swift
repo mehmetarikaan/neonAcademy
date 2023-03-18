@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CustomCell: UITableViewCell {
 
@@ -27,6 +28,7 @@ class CustomCell: UITableViewCell {
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.text = "Tue, 12 Feb"
         label.textColor = .black
         label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .left
@@ -36,22 +38,79 @@ class CustomCell: UITableViewCell {
     private let statusIcon: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
+        image.image = UIImage(named: "img_selected_diaperc")
         image.tintColor = .label
         return image
     }()
-    private let statusTitle: UILabel = {
+    private var statusTitle: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.29512766, green: 0.1368008852, blue: 0.7957670093, alpha: 1)
+        label.text = "mehmet"
         label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textAlignment = .left
         return label
     }()
-    private let timeLabel: UILabel = {
+    private var timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.text = "12:30 AM"
         label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textAlignment = .left
         return label
     }()
 
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.setupCellUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configure(with statusTit: String, and timeLab: String){
+        self.statusTitle.text = statusTit
+        self.timeLabel.text = timeLab
+    }
+    
+    private func setupCellUI(){
+        contentView.backgroundColor = #colorLiteral(red: 0.9529412389, green: 0.9529412389, blue: 0.9529412389, alpha: 1)
+        self.contentView.addSubview(calenderIcon)
+        self.contentView.addSubview(lineImage)
+        self.contentView.addSubview(titleLabel)
+        self.contentView.addSubview(statusIcon)
+        self.contentView.addSubview(statusTitle)
+        self.contentView.addSubview(timeLabel)
+        
+//        let separator = UIView(frame: CGRectMake(0, 0, contentView.bounds.size.width, 1))
+//        separator.backgroundColor = UIColor.white
+//        self.contentView.addSubview(separator)
+        
+        
+        calenderIcon.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top).offset(14)
+            make.left.equalTo(28)
+            make.bottom.equalTo(lineImage.snp.top).offset(16)
+        }
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top).offset(14)
+            make.left.equalTo(calenderIcon.snp.right).offset(11)
+            make.bottom.equalTo(lineImage.snp.top).offset(16)
+        }
+        lineImage.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        statusIcon.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top).offset(72)
+            make.left.equalTo(23)
+        }
+        statusTitle.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top).offset(72)
+            make.left.equalTo(statusIcon.snp.right).offset(8)
+        }
+        timeLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top).offset(72)
+            make.right.equalTo(-23)
+        }
+    }
 }

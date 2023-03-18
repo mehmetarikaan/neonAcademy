@@ -6,12 +6,18 @@
 //
 
 //FIXME: - TableView Ekle - Custom Cell yaz
+//viewdidload'ta tek tek her özelliğin datasını core'dan çek
+
 
 import UIKit
 import SnapKit
 
 class CalenderViewController: UIViewController {
+    
+    //viewdidload'ta tek tek her özelliğin datasını core'dan çek ve servis olarak ya da data tut
+    
     //MARK: - Properties
+    var homeData = HomeViewController()
     lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.text = "Tue, Feb 12"
@@ -53,9 +59,9 @@ class CalenderViewController: UIViewController {
     }()
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .systemGray
         tableView.allowsSelection = true
         tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+        tableView.rowHeight = 120
         return tableView
     }()
     
@@ -105,6 +111,7 @@ class CalenderViewController: UIViewController {
             make.right.equalTo(-24)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+        
     }
     
     // Selected method - func
@@ -162,13 +169,15 @@ class CalenderViewController: UIViewController {
 
 extension CalenderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell else {
             fatalError("tableview custom cell patladı canım")
         }
+        cell.contentView.layer.cornerRadius = 25
+        cell.configure(with: homeData.profileNameLabel.text! , and: homeData.babyAgeLabel.text!)
         return cell
     }
 }
