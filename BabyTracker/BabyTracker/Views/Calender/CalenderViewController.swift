@@ -11,6 +11,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class CalenderViewController: UIViewController {
     
@@ -18,6 +19,11 @@ class CalenderViewController: UIViewController {
     
     //MARK: - Properties
     var homeData = HomeViewController()
+    var feedingData = [String]()
+    var allData = [String]()
+    var diaperData = [String]()
+    var sleepData = [String]()
+    
     lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.text = "Tue, Feb 12"
@@ -74,7 +80,67 @@ class CalenderViewController: UIViewController {
         configureCalenderNavigation()
         hideKeyboardWhenTappedAround()
         calenderSetupUI()
+        fetchAllData()
+        fetchFeedingData()
+        fetchDiaperData()
+        fetchSleepData()
     }
+    
+    func fetchAllData(){
+       
+    }
+    func fetchFeedingData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Feeding")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do{
+            let results = try context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject] {
+                if let time = result.value(forKey: "time") as? String {
+                    self.feedingData.append(time)
+                }
+            }
+        } catch {
+            print("catche yakalandın ve düştü kardeşim - fetch data")
+        }
+    }
+    func fetchDiaperData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Diaper")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do{
+            let results = try context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject] {
+                if let time = result.value(forKey: "time") as? String {
+                    self.diaperData.append(time)
+                }
+            }
+        } catch {
+            print("catche yakalandın ve düştü kardeşim - fetch data")
+        }
+    }
+    func fetchSleepData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sleep")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do{
+            let results = try context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject] {
+                if let time = result.value(forKey: "wokeUp") as? String {
+                    self.sleepData.append(time)
+                }
+            }
+        } catch {
+            print("catche yakalandın ve düştü kardeşim - fetch data")
+        }
+    }
+    
     @objc func calenderSetupUI(){
         view.backgroundColor = .white
         view.addSubview(titleLabel)
@@ -119,6 +185,7 @@ class CalenderViewController: UIViewController {
         if titleAllButton.isSelected == true {
             titleAllButton.isSelected = false
         } else {
+            tableView.reloadData()
             titleAllButton.isSelected = true
             feedingButton.isSelected = false
             diaperButton.isSelected = false
@@ -130,16 +197,19 @@ class CalenderViewController: UIViewController {
         if feedingButton.isSelected == true {
             feedingButton.isSelected = false
         } else {
+            tableView.reloadData()
             feedingButton.isSelected = true
             titleAllButton.isSelected = false
             diaperButton.isSelected = false
             sleepButton.isSelected = false
+            fetchFeedingData()
         }
     }
     @objc func handleDiaperButton(){
         if diaperButton.isSelected == true {
             diaperButton.isSelected = false
         } else {
+            tableView.reloadData()
             diaperButton.isSelected = true
             titleAllButton.isSelected = false
             feedingButton.isSelected = false
@@ -150,6 +220,7 @@ class CalenderViewController: UIViewController {
         if sleepButton.isSelected == true {
             sleepButton.isSelected = false
         } else {
+            tableView.reloadData()
             sleepButton.isSelected = true
             titleAllButton.isSelected = false
             feedingButton.isSelected = false
@@ -169,7 +240,17 @@ class CalenderViewController: UIViewController {
 
 extension CalenderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if sleepButton.isSelected {
+            return sleepData.count
+        }
+        if feedingButton.isSelected {
+            return feedingData.count
+        }
+        if diaperButton.isSelected {
+            return diaperData.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -177,7 +258,16 @@ extension CalenderViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("tableview custom cell patladı canım")
         }
         cell.contentView.layer.cornerRadius = 25
-        cell.configure(with: homeData.profileNameLabel.text! , and: homeData.babyAgeLabel.text!)
+        if sleepButton.isSelected {
+            cell.configure(with: homeData.profileNameLabel.text! , and: sleepData[indexPath.row])
+        }
+        if feedingButton.isSelected {
+            cell.configure(with: homeData.profileNameLabel.text! , and: feedingData[indexPath.row])
+        }
+        if diaperButton.isSelected {
+            cell.configure(with: homeData.profileNameLabel.text! , and: diaperData[indexPath.row])
+        }
+        //cell.configure(with: homeData.profileNameLabel.text! , and: feedingData[indexPath.row])
         return cell
     }
 }
