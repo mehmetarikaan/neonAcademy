@@ -48,12 +48,7 @@ final class OnboardingTwoViewController: UIViewController {
         return image
     }()
     
-    lazy var customButton: CustomButton = {
-       let custom = CustomButton()
-        custom.setTitle("Next", for: .normal)
-        custom.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
-        return custom
-    }()
+    lazy var customButton = CustomButton(title: "Next")
    //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +67,7 @@ final class OnboardingTwoViewController: UIViewController {
     
     //MARK: - Helpers
     func setupUI(){
+        customButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubview(image)
         image.snp.makeConstraints { make in

@@ -95,14 +95,7 @@ final class LoginInformationViewController: UIViewController {
         datePickerTime.addTarget(self, action: #selector(valueChangedDueDateTextFieldPicker), for: .valueChanged)
         return textField
     }()
-    lazy var continueButton: CustomButton = {
-        let button = CustomButton()
-        button.setTitle("Continue", for: .normal)
-        button.setTitleColor(UIColor.white,for: .normal)
-        button.isEnabled = true
-        button.addTarget(self, action: #selector(handleContinueButton), for: .touchUpInside)
-        return button
-    }()
+    lazy var continueButton = CustomButton(title: "Continue")
     //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +108,7 @@ final class LoginInformationViewController: UIViewController {
     }
     //MARK: - Helpers
     func setupLoginUI(){
+        continueButton.addTarget(self, action: #selector(handleContinueButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubview(plusPhotoButton)
         plusPhotoButton.snp.makeConstraints { make in

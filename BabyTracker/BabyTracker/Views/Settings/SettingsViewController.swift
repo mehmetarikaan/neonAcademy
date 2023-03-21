@@ -10,52 +10,13 @@ import SnapKit
 
 class SettingsViewController: UIViewController {
     
-    lazy var getPremiumButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_getpremium")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        //button.addTarget(self, action: #selector(handleGirlBabyButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    
-    lazy var getRateUsButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_rateus")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        //button.addTarget(self, action: #selector(handleGirlBabyButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    lazy var getTermsButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_terms")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        //button.addTarget(self, action: #selector(handleGirlBabyButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    
-    lazy var getPrivacyButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_privacy")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        //button.addTarget(self, action: #selector(handleGirlBabyButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    
-    lazy var getContactButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_contact")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        //button.addTarget(self, action: #selector(handleGirlBabyButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    
-    lazy var getRestoreButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_restore")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        //button.addTarget(self, action: #selector(handleGirlBabyButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
+    private lazy var getPremiumButton = CustomImageButton(normal: "img_getpremium")
+    private lazy var getRateUsButton = CustomImageButton(normal: "img_rateus")
+    private lazy var getTermsButton = CustomImageButton(normal: "img_terms")
+    private lazy var getPrivacyButton = CustomImageButton(normal: "img_privacy")
+    private lazy var getContactButton = CustomImageButton(normal: "img_contact")
+    private lazy var getRestoreButton = CustomImageButton(normal: "img_restore")
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

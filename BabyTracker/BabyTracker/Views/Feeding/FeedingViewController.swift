@@ -40,25 +40,8 @@ class FeedingViewController: UIViewController {
         return textfield
     }()
     
-    lazy var noteField: UITextView = {
-       let textfield = UITextView()
-        textfield.text = "Note"
-        textfield.backgroundColor = #colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)
-        textfield.textColor = #colorLiteral(red: 0.7372547984, green: 0.737255156, blue: 0.745862782, alpha: 1)
-        textfield.font = .systemFont(ofSize: 14)
-        textfield.layer.cornerRadius = 25
-        textfield.layer.fillMode = .backwards
-        return textfield
-    }()
-    
-    lazy var saveButton: CustomButton = {
-        let button = CustomButton()
-        button.setTitle("Save", for: .normal)
-        button.setTitleColor(UIColor.white,for: .normal)
-        button.isEnabled = true
-        button.addTarget(self, action: #selector(tapedSaveButton), for: .touchUpInside)
-        return button
-    }()
+    private lazy var noteField = CustomNoteTextView()
+    lazy var saveButton = CustomButton(title: "Save")
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -71,6 +54,7 @@ class FeedingViewController: UIViewController {
     
     //MARK: - Actions
     func feedingSetupUI(){
+        saveButton.addTarget(self, action: #selector(tapedSaveButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubview(timeField)
         timeField.snp.makeConstraints { make in
@@ -105,23 +89,14 @@ class FeedingViewController: UIViewController {
 
     }
     
-    
-    
     @objc func tapedSaveButton(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let saveData = NSEntityDescription.insertNewObject(forEntityName: "Feeding", into: context)
-        
-        //Save core data
+
         saveData.setValue(String(timeField.text!), forKey: "time")
         saveData.setValue(String(amountField.text!), forKey: "amount")
         saveData.setValue(String(noteField.text!), forKey: "note")
-        
-        //saveData.setValue(UUID(), forKey: "id")
-        
-//        if let ages = Int(ageTextField.text!){
-//            saveData.setValue(ages, forKey: "age")
-//        }
         
         do {
             try context.save()
@@ -158,12 +133,6 @@ class FeedingViewController: UIViewController {
         noteField.text = ""
         noteField.textColor = .white
         
-    }
-    func textViewDidBeginEditing (textView: UITextView) {
-        if noteField.text.isEmpty || noteField.text == "" {
-            noteField.textColor = .lightGray
-            noteField.text = ""
-        }
     }
 }
 

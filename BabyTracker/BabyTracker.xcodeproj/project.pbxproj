@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70F38D829C99DB6005687FD /* CustomCalenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F38D729C99DB6005687FD /* CustomCalenderButton.swift */; };
+		B70F38DA29C9A0F5005687FD /* CustomImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F38D929C9A0F5005687FD /* CustomImageButton.swift */; };
+		B70F38DC29C9A977005687FD /* CustomPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F38DB29C9A977005687FD /* CustomPickerField.swift */; };
+		B70F38DE29C9ABD6005687FD /* CustomNoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F38DD29C9ABD6005687FD /* CustomNoteTextView.swift */; };
+		B70F38E029C9C5A6005687FD /* CustomSelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F38DF29C9C5A6005687FD /* CustomSelectedButton.swift */; };
 		B738D74429C1D5550077711E /* LoginInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738D74329C1D5550077711E /* LoginInformationViewController.swift */; };
 		B738D74629C1E8DD0077711E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738D74529C1E8DD0077711E /* CustomTextField.swift */; };
 		B743EDA329C4403D00B170E9 /* BabyTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B743EDA129C4403D00B170E9 /* BabyTracker.xcdatamodeld */; };
 		B743EDA529C4869800B170E9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743EDA429C4869800B170E9 /* SettingsViewController.swift */; };
+		B747D14A29C8805700E0A3CB /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = B747D14929C8805700E0A3CB /* StoreKitTestCertificate.cer */; };
 		B77E426729C60FCC00FDA9F0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E426629C60FCC00FDA9F0 /* CustomCell.swift */; };
 		B7B9944F29C313B50080533A /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9944E29C313B50080533A /* FormModel.swift */; };
 		B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B9945129C3216D0080533A /* HomeViewController.swift */; };
@@ -33,13 +39,22 @@
 		B7CA3DE329C05E32009CFC1A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DE229C05E32009CFC1A /* CustomButton.swift */; };
 		B7CA3DE529C098BA009CFC1A /* InAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA3DE429C098BA009CFC1A /* InAppViewController.swift */; };
 		B7CA3DE829C09A4F009CFC1A /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = B7CA3DE729C09A4F009CFC1A /* Hero */; };
+		B7FF301B29C855E100520744 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = B7FF301A29C855E100520744 /* RevenueCat */; };
+		B7FF301E29C859EB00520744 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FF301D29C859EB00520744 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B70F38D729C99DB6005687FD /* CustomCalenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalenderButton.swift; sourceTree = "<group>"; };
+		B70F38D929C9A0F5005687FD /* CustomImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageButton.swift; sourceTree = "<group>"; };
+		B70F38DB29C9A977005687FD /* CustomPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerField.swift; sourceTree = "<group>"; };
+		B70F38DD29C9ABD6005687FD /* CustomNoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNoteTextView.swift; sourceTree = "<group>"; };
+		B70F38DF29C9C5A6005687FD /* CustomSelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectedButton.swift; sourceTree = "<group>"; };
 		B738D74329C1D5550077711E /* LoginInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInformationViewController.swift; sourceTree = "<group>"; };
 		B738D74529C1E8DD0077711E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B743EDA229C4403D00B170E9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B743EDA429C4869800B170E9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B747D14829C87E6300E0A3CB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		B747D14929C8805700E0A3CB /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../../StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		B77E426629C60FCC00FDA9F0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		B7B9944E29C313B50080533A /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		B7B9945129C3216D0080533A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +77,7 @@
 		B7CA3DE029C050D7009CFC1A /* OnboardingThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThreeViewController.swift; sourceTree = "<group>"; };
 		B7CA3DE229C05E32009CFC1A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B7CA3DE429C098BA009CFC1A /* InAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppViewController.swift; sourceTree = "<group>"; };
+		B7FF301D29C859EB00520744 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +87,40 @@
 			files = (
 				B7CA3DE829C09A4F009CFC1A /* Hero in Frameworks */,
 				B7CA3DDD29C0505A009CFC1A /* SnapKit in Frameworks */,
+				B7FF301B29C855E100520744 /* RevenueCat in Frameworks */,
+				B7FF301E29C859EB00520744 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B70F38E329C9D288005687FD /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */,
+				B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		B70F38E429C9D2A4005687FD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B7CA3DC229C04AFF009CFC1A /* Main.storyboard */,
+				B7CA3DC729C04B00009CFC1A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B70F38E529C9D331005687FD /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Screen;
+			path = Core;
+			sourceTree = "<group>";
+		};
 		B738D74129C1CA490077711E /* InApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,12 +164,11 @@
 		B7B9945729C353D00080533A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B743EDA129C4403D00B170E9 /* BabyTracker.xcdatamodeld */,
-				B7CA3DBC29C04AFF009CFC1A /* AppDelegate.swift */,
-				B7CA3DBE29C04AFF009CFC1A /* SceneDelegate.swift */,
-				B7CA3DC229C04AFF009CFC1A /* Main.storyboard */,
+				B7CA3DD229C04B35009CFC1A /* CustomViews */,
+				B70F38E329C9D288005687FD /* Delegate */,
+				B70F38E429C9D2A4005687FD /* Storyboard */,
 				B7CA3DC529C04B00009CFC1A /* Assets.xcassets */,
-				B7CA3DC729C04B00009CFC1A /* LaunchScreen.storyboard */,
+				B743EDA129C4403D00B170E9 /* BabyTracker.xcdatamodeld */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -167,6 +210,7 @@
 			children = (
 				B7CA3DBB29C04AFF009CFC1A /* BabyTracker */,
 				B7CA3DBA29C04AFF009CFC1A /* Products */,
+				B7FF301C29C859EB00520744 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,11 +225,13 @@
 		B7CA3DBB29C04AFF009CFC1A /* BabyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				B70F38E529C9D331005687FD /* Screen */,
 				B7B9945729C353D00080533A /* Core */,
-				B7CA3DD229C04B35009CFC1A /* CustomViews */,
 				B7CA3DD129C04B20009CFC1A /* Models */,
 				B7CA3DD029C04B13009CFC1A /* Views */,
 				B7CA3DCA29C04B00009CFC1A /* Info.plist */,
+				B747D14829C87E6300E0A3CB /* Configuration.storekit */,
+				B747D14929C8805700E0A3CB /* StoreKitTestCertificate.cer */,
 			);
 			path = BabyTracker;
 			sourceTree = "<group>";
@@ -220,10 +266,16 @@
 			isa = PBXGroup;
 			children = (
 				B7CA3DE229C05E32009CFC1A /* CustomButton.swift */,
+				B70F38D929C9A0F5005687FD /* CustomImageButton.swift */,
+				B70F38DF29C9C5A6005687FD /* CustomSelectedButton.swift */,
+				B70F38D729C99DB6005687FD /* CustomCalenderButton.swift */,
 				B738D74529C1E8DD0077711E /* CustomTextField.swift */,
+				B70F38DB29C9A977005687FD /* CustomPickerField.swift */,
+				B70F38DD29C9ABD6005687FD /* CustomNoteTextView.swift */,
 				B77E426629C60FCC00FDA9F0 /* CustomCell.swift */,
 			);
 			name = CustomViews;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B7CA3DD329C04B55009CFC1A /* Onboarding */ = {
@@ -235,6 +287,14 @@
 				B7CA3DE029C050D7009CFC1A /* OnboardingThreeViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B7FF301C29C859EB00520744 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7FF301D29C859EB00520744 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +316,7 @@
 			packageProductDependencies = (
 				B7CA3DDC29C0505A009CFC1A /* SnapKit */,
 				B7CA3DE729C09A4F009CFC1A /* Hero */,
+				B7FF301A29C855E100520744 /* RevenueCat */,
 			);
 			productName = BabyTracker;
 			productReference = B7CA3DB929C04AFF009CFC1A /* BabyTracker.app */;
@@ -288,6 +349,7 @@
 			packageReferences = (
 				B7CA3DDB29C0505A009CFC1A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B7CA3DE629C09A4F009CFC1A /* XCRemoteSwiftPackageReference "Hero" */,
+				B7FF301929C855E100520744 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = B7CA3DBA29C04AFF009CFC1A /* Products */;
 			projectDirPath = "";
@@ -306,6 +368,7 @@
 				B7CA3DC929C04B00009CFC1A /* LaunchScreen.storyboard in Resources */,
 				B7CA3DC629C04B00009CFC1A /* Assets.xcassets in Resources */,
 				B7CA3DC429C04AFF009CFC1A /* Main.storyboard in Resources */,
+				B747D14A29C8805700E0A3CB /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,12 +386,15 @@
 				B7B9944F29C313B50080533A /* FormModel.swift in Sources */,
 				B7CA3DBD29C04AFF009CFC1A /* AppDelegate.swift in Sources */,
 				B7CA3DDA29C05000009CFC1A /* OnboardingOneViewController.swift in Sources */,
+				B70F38DC29C9A977005687FD /* CustomPickerField.swift in Sources */,
 				B7B9946329C3B8C00080533A /* CalenderViewController.swift in Sources */,
 				B7B9945529C349DB0080533A /* EditViewController.swift in Sources */,
 				B7CA3DE329C05E32009CFC1A /* CustomButton.swift in Sources */,
 				B7B9946029C3A25C0080533A /* SleepViewController.swift in Sources */,
 				B7CA3DE529C098BA009CFC1A /* InAppViewController.swift in Sources */,
+				B70F38E029C9C5A6005687FD /* CustomSelectedButton.swift in Sources */,
 				B7CA3DBF29C04AFF009CFC1A /* SceneDelegate.swift in Sources */,
+				B70F38DE29C9ABD6005687FD /* CustomNoteTextView.swift in Sources */,
 				B7B9945C29C3700A0080533A /* DiaperChangeViewController.swift in Sources */,
 				B738D74429C1D5550077711E /* LoginInformationViewController.swift in Sources */,
 				B7B9945929C354000080533A /* FeedingViewController.swift in Sources */,
@@ -336,6 +402,8 @@
 				B7B9945229C3216D0080533A /* HomeViewController.swift in Sources */,
 				B743EDA329C4403D00B170E9 /* BabyTracker.xcdatamodeld in Sources */,
 				B77E426729C60FCC00FDA9F0 /* CustomCell.swift in Sources */,
+				B70F38D829C99DB6005687FD /* CustomCalenderButton.swift in Sources */,
+				B70F38DA29C9A0F5005687FD /* CustomImageButton.swift in Sources */,
 				B7CA3DD629C04C0E009CFC1A /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +564,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetarikan.BabyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neonapps.education.SwiftyStoreKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -524,7 +592,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetarikan.BabyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neonapps.education.SwiftyStoreKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -572,6 +640,14 @@
 				kind = branch;
 			};
 		};
+		B7FF301929C855E100520744 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -584,6 +660,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7CA3DE629C09A4F009CFC1A /* XCRemoteSwiftPackageReference "Hero" */;
 			productName = Hero;
+		};
+		B7FF301A29C855E100520744 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7FF301929C855E100520744 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
 		};
 /* End XCSwiftPackageProductDependency section */
 

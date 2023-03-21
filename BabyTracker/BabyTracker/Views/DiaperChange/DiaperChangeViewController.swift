@@ -34,59 +34,12 @@ class DiaperChangeViewController: UIViewController {
         title.font = .systemFont(ofSize: 15, weight: .semibold)
         return title
     }()
-    
-    lazy var wetButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_wet")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_wet")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleWetButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    lazy var dirtyButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_dirty")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_dirty")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleDirtyButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    lazy var mixedButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_mixed")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_mixed")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleMixedButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    lazy var dryButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_dry")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_dry")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleDryButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    lazy var noteField: UITextField = {
-       let textView = UITextField()
-        textView.attributedPlaceholder = NSAttributedString(string: "Note")
-        textView.backgroundColor = #colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)
-        textView.leftView = UIView(frame: CGRect(x: 25, y: -20, width: 0, height: 0))
-        textView.textColor = #colorLiteral(red: 0.7372547984, green: 0.737255156, blue: 0.745862782, alpha: 1)
-        textView.font = .systemFont(ofSize: 14)
-        textView.layer.cornerRadius = 25
-        return textView
-    }()
-    
-    lazy var saveButton: CustomButton = {
-        let button = CustomButton()
-        button.setTitle("Save", for: .normal)
-        button.setTitleColor(UIColor.white,for: .normal)
-        button.isEnabled = true
-        button.addTarget(self, action: #selector(tapedSaveButton), for: .touchUpInside)
-        return button
-    }()
-
+    private lazy var wetButton = CustomSelectedButton(normal: "img_unselected_wet", selected: "img_selected_wet")
+    private lazy var dirtyButton = CustomSelectedButton(normal: "img_unselected_dirty", selected: "img_selected_dirty")
+    private lazy var mixedButton = CustomSelectedButton(normal: "img_unselected_mixed", selected: "img_selected_mixed")
+    private lazy var dryButton = CustomSelectedButton(normal: "img_unselected_dry", selected: "img_selected_dry")
+    private lazy var noteField = CustomNoteTextView()
+    private lazy var saveButton = CustomButton(title: "Save")
     
     //MARK: - Lifeycle
     override func viewDidLoad() {
@@ -94,12 +47,16 @@ class DiaperChangeViewController: UIViewController {
         configureDiaperNavigation()
         diaperSetupUI()
         hideKeyboardWhenTappedAround()
-        
     }
     
     //MARK: - Actions
-    
     func diaperSetupUI(){
+        wetButton.addTarget(self, action: #selector(handleWetButton), for: UIControl.Event.touchUpInside)
+        saveButton.addTarget(self, action: #selector(tapedSaveButton), for: .touchUpInside)
+        dirtyButton.addTarget(self, action: #selector(handleDirtyButton), for: UIControl.Event.touchUpInside)
+        mixedButton.addTarget(self, action: #selector(handleMixedButton), for: UIControl.Event.touchUpInside)
+        dryButton.addTarget(self, action: #selector(handleDryButton), for: UIControl.Event.touchUpInside)
+
         view.backgroundColor = .white
         view.addSubview(timeField)
         timeField.snp.makeConstraints { make in

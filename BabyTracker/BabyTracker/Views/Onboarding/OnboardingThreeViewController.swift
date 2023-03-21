@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Hero
+import RevenueCat
 
 final class OnboardingThreeViewController: UIViewController {
     //MARK: - Properties
@@ -47,13 +48,8 @@ final class OnboardingThreeViewController: UIViewController {
         image.image = UIImage(named: "slider3")
         return image
     }()
+    lazy var customButton = CustomButton(title: "Next")
     
-    lazy var customButton: CustomButton = {
-       let custom = CustomButton()
-        custom.setTitle("Next", for: .normal)
-        custom.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
-        return custom
-    }()
    //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,13 +61,24 @@ final class OnboardingThreeViewController: UIViewController {
     
     //MARK: - Actions
     @objc func handleNextButton(){
-        print("dwfdsf")
-        let viewMain = InAppViewController()
-        navigationController?.pushViewController(viewMain, animated: true)
+            Purchases.shared.getCustomerInfo { [weak self] info, error in
+                guard let info = info, error == nil else { return }
+                print(info.entitlements)
+                if info.entitlements.all["Premium"]?.isActive == true {
+                    let vc = LoginInformationViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let vcc = InAppViewController()
+                    self?.navigationController?.pushViewController(vcc, animated: true)
+                }
+            }
+//        let viewMain = InAppViewController()
+//        navigationController?.pushViewController(viewMain, animated: true)
     }
     
     //MARK: - Helpers
     func setupUI(){
+        customButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubview(image)
         image.snp.makeConstraints { make in

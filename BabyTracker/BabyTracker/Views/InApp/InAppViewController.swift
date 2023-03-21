@@ -12,6 +12,7 @@
 
 import UIKit
 import SnapKit
+import RevenueCat
 
 class InAppViewController: UIViewController {
     //MARK: - Properties
@@ -22,7 +23,7 @@ class InAppViewController: UIViewController {
     }()
     
     lazy var imageView: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.image = UIImage(named: "img_4")
         return image
     }()
@@ -44,7 +45,7 @@ class InAppViewController: UIViewController {
         return image
     }()
     lazy var labelOne: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Share the care"
         label.numberOfLines = 0
         label.textColor = .black
@@ -58,7 +59,7 @@ class InAppViewController: UIViewController {
         return image
     }()
     lazy var labelTwo: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "All-in-one baby tracker"
         label.numberOfLines = 0
         label.textColor = .black
@@ -72,7 +73,7 @@ class InAppViewController: UIViewController {
         return image
     }()
     lazy var labelThree: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Watch your babys growth"
         label.numberOfLines = 0
         label.textColor = .black
@@ -90,12 +91,7 @@ class InAppViewController: UIViewController {
         return bgView
     }()
     
-    @objc lazy var startButton: CustomButton = {
-       let button = CustomButton()
-        button.setTitle("Start", for: .normal)
-        button.addTarget(self, action: #selector(startedButton), for: .touchUpInside)
-        return button
-    }()
+    @objc lazy var startButton = CustomButton(title: "Start")
     
     lazy var privacyPolicyButton: UILabel = {
         let label = UILabel()
@@ -166,9 +162,72 @@ class InAppViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         configureUI()
         configureNavigation()
+        createdButtonUI()
     }
     
     //MARK: - Helpers
+    
+    func createdButtonUI(){
+        Purchases.shared.getCustomerInfo { [weak self] info, error in
+            guard let info = info, error == nil else { return }
+            print(info.entitlements)
+            if info.entitlements.all["Premium"]?.isActive == true {
+                let vc = LoginInformationViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                DispatchQueue.main.async {
+                    print("create button else ")
+                }
+            }
+        }
+    }
+    
+    func fetchPackage(input: String, completion: @escaping (RevenueCat.Package) -> Void ) {
+        Purchases.shared.getOfferings { offerings, error in
+            guard let offerings = offerings, error == nil else {
+                return
+            }
+            guard let package = offerings.all.first?.value.package(identifier: input) else {
+                return
+            }
+            completion(package)
+        }
+    }
+    
+    func purchase(package: RevenueCat.Package) {
+        Purchases.shared.purchase(package: package) { transaction, info, error, userCancelled in
+            guard let transaction = transaction,
+                  let info = info,
+                  error == nil, !userCancelled else {
+                return
+            }
+            if info.entitlements.all["Premium"]?.isActive == true {
+                let vc = LoginInformationViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                DispatchQueue.main.async {
+                    print("else düştü")
+                }
+            }
+        }
+    }
+    
+    func restorePurchases(){
+        Purchases.shared.restorePurchases { [weak self] info, error in
+            guard let info = info, error == nil else { return }
+            
+            if info.entitlements.all["Premium"]?.isActive == true {
+                let vc = LoginInformationViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                DispatchQueue.main.async {
+                    let vc = LoginInformationViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
+    }
+    
     @objc func handleWeeklyButton(){
         if weeklyButton.isSelected == true {
             weeklyButton.isSelected = false
@@ -187,7 +246,7 @@ class InAppViewController: UIViewController {
             annualButton.isSelected = false
         }
     }
-
+    
     @objc func handleAnnualButton(){
         if annualButton.isSelected == true {
             annualButton.isSelected = false
@@ -197,9 +256,9 @@ class InAppViewController: UIViewController {
             monthlyButton.isSelected = false
         }
     }
-
+    
     @objc func handleRestorePuchase(){
-
+        
     }
     
     @objc func handlePrivacyPolicy(){
@@ -219,104 +278,117 @@ class InAppViewController: UIViewController {
     }
     
     @objc func startedButton(){
-        let vc = LoginInformationViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        if weeklyButton.isSelected {
+            fetchPackage(input: "$rc_weekly") { [weak self] package in
+                self?.purchase(package: package)
+            }
+        } else if monthlyButton.isSelected {
+            fetchPackage(input: "$rc_monthly") { [weak self] package in
+                self?.purchase(package: package)
+            }
+        } else {
+            fetchPackage(input: "$rc_annual") { [weak self] package in
+                self?.purchase(package: package)
+            }
+        }
     }
-    func configureUI(){
-        view.backgroundColor = .white
-        view.addSubview(backgroundView)
-        
-        view.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(18)
-            make.centerX.equalToSuperview().offset(-20)
+        func configureUI(){
+            startButton.addTarget(self, action: #selector(startedButton), for: .touchUpInside)
+
+            view.backgroundColor = .white
+            view.addSubview(backgroundView)
+            
+            view.addSubview(imageView)
+            imageView.snp.makeConstraints { make in
+                make.top.equalTo(view.safeAreaLayoutGuide).offset(18)
+                make.centerX.equalToSuperview().offset(-20)
+            }
+            
+            let stackOne = UIStackView(arrangedSubviews: [imageDotOne, labelOne])
+            stackOne.axis = .horizontal
+            stackOne.spacing = -10
+            
+            let stackTwo = UIStackView(arrangedSubviews: [imageDotTwo, labelTwo])
+            stackTwo.axis = .horizontal
+            stackTwo.spacing = -10
+            
+            let stackThree = UIStackView(arrangedSubviews: [imageDotThree, labelThree])
+            stackThree.axis = .horizontal
+            stackThree.spacing = -10
+            view.addSubview(stackOne)
+            view.addSubview(stackTwo)
+            view.addSubview(stackThree)
+            
+            
+            stackOne.snp.makeConstraints { make in
+                make.top.equalTo(imageView.snp.bottom).offset(8)
+                make.leading.equalTo(80)
+            }
+            
+            stackTwo.snp.makeConstraints { make in
+                make.top.equalTo(stackOne.snp.top).offset(32)
+                make.leading.equalTo(80)
+            }
+            stackThree.snp.makeConstraints { make in
+                make.top.equalTo(stackTwo.snp.top).offset(32)
+                make.leading.equalTo(80)
+            }
+            backgroundView.snp.makeConstraints { make in
+                make.top.equalTo(stackThree.snp.bottom).offset(16)
+                make.centerX.equalTo(view.center)
+                make.height.equalToSuperview()
+                make.width.equalToSuperview()
+            }
+            view.addSubview(weeklyButton)
+            weeklyButton.snp.makeConstraints { make in
+                make.top.equalTo(backgroundView.snp.top).offset(24)
+                make.left.equalTo(28)
+                make.right.equalTo(-28)
+            }
+            view.addSubview(monthlyButton)
+            monthlyButton.snp.makeConstraints { make in
+                make.top.equalTo(weeklyButton.snp.bottom).offset(32)
+                make.left.equalTo(28)
+                make.right.equalTo(-28)
+            }
+            view.addSubview(annualButton)
+            annualButton.snp.makeConstraints { make in
+                make.top.equalTo(monthlyButton.snp.bottom).offset(32)
+                make.left.equalTo(28)
+                make.right.equalTo(-28)
+            }
+            view.addSubview(privacyPolicyButton)
+            privacyPolicyButton.snp.makeConstraints { make in
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+                make.left.equalToSuperview().offset(64)
+            }
+            view.addSubview(imageCub)
+            imageCub.snp.makeConstraints { make in
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+                make.left.equalTo(privacyPolicyButton.snp.right).offset(8)
+            }
+            view.addSubview(restorePuchaseButton)
+            restorePuchaseButton.snp.makeConstraints { make in
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+                make.left.equalTo(imageCub.snp.right).offset(8)
+            }
+            view.addSubview(imageCubTwo)
+            imageCubTwo.snp.makeConstraints { make in
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+                make.left.equalTo(restorePuchaseButton.snp.right).offset(8)
+            }
+            view.addSubview(termsOfUseButton)
+            termsOfUseButton.snp.makeConstraints { make in
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+                make.left.equalTo(imageCubTwo.snp.right).offset(8)
+            }
+            view.addSubview(startButton)
+            startButton.snp.makeConstraints { make in
+                make.bottom.equalTo(privacyPolicyButton.snp.top).offset(-20)
+                make.left.equalToSuperview().offset(40)
+                make.right.equalToSuperview().inset(40)
+                make.height.equalTo(startButton.snp.width).multipliedBy(0.18)
+            }
+            
         }
-        
-        let stackOne = UIStackView(arrangedSubviews: [imageDotOne, labelOne])
-        stackOne.axis = .horizontal
-        stackOne.spacing = -10
-        
-        let stackTwo = UIStackView(arrangedSubviews: [imageDotTwo, labelTwo])
-        stackTwo.axis = .horizontal
-        stackTwo.spacing = -10
-        
-        let stackThree = UIStackView(arrangedSubviews: [imageDotThree, labelThree])
-        stackThree.axis = .horizontal
-        stackThree.spacing = -10
-        view.addSubview(stackOne)
-        view.addSubview(stackTwo)
-        view.addSubview(stackThree)
-        
-        
-        stackOne.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(8)
-            make.leading.equalTo(80)
-        }
-        
-        stackTwo.snp.makeConstraints { make in
-            make.top.equalTo(stackOne.snp.top).offset(32)
-            make.leading.equalTo(80)
-        }
-        stackThree.snp.makeConstraints { make in
-            make.top.equalTo(stackTwo.snp.top).offset(32)
-            make.leading.equalTo(80)
-        }
-        backgroundView.snp.makeConstraints { make in
-            make.top.equalTo(stackThree.snp.bottom).offset(16)
-            make.centerX.equalTo(view.center)
-            make.height.equalToSuperview()
-            make.width.equalToSuperview()
-        }
-        view.addSubview(weeklyButton)
-        weeklyButton.snp.makeConstraints { make in
-            make.top.equalTo(backgroundView.snp.top).offset(24)
-            make.left.equalTo(28)
-            make.right.equalTo(-28)
-        }
-        view.addSubview(monthlyButton)
-        monthlyButton.snp.makeConstraints { make in
-            make.top.equalTo(weeklyButton.snp.bottom).offset(32)
-            make.left.equalTo(28)
-            make.right.equalTo(-28)
-        }
-        view.addSubview(annualButton)
-        annualButton.snp.makeConstraints { make in
-            make.top.equalTo(monthlyButton.snp.bottom).offset(32)
-            make.left.equalTo(28)
-            make.right.equalTo(-28)
-        }
-        view.addSubview(privacyPolicyButton)
-        privacyPolicyButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.left.equalToSuperview().offset(64)
-        }
-        view.addSubview(imageCub)
-        imageCub.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.left.equalTo(privacyPolicyButton.snp.right).offset(8)
-        }
-        view.addSubview(restorePuchaseButton)
-        restorePuchaseButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.left.equalTo(imageCub.snp.right).offset(8)
-        }
-        view.addSubview(imageCubTwo)
-        imageCubTwo.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.left.equalTo(restorePuchaseButton.snp.right).offset(8)
-        }
-        view.addSubview(termsOfUseButton)
-        termsOfUseButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.left.equalTo(imageCubTwo.snp.right).offset(8)
-        }
-        view.addSubview(startButton)
-        startButton.snp.makeConstraints { make in
-            make.bottom.equalTo(privacyPolicyButton.snp.top).offset(-20)
-            make.left.equalToSuperview().offset(40)
-            make.right.equalToSuperview().inset(40)
-            make.height.equalTo(startButton.snp.width).multipliedBy(0.18)
-        }
-    
     }
-}

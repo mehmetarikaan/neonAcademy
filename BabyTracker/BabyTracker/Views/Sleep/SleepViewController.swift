@@ -14,6 +14,8 @@ class SleepViewController: UIViewController {
     //MARK: - Properties
     private let indentView = UIView(frame: CGRect(x: 0, y:0, width: 20, height: 10))
     
+    //lazy var feelSleepField = CustomPickerField(place: "Feel Sleep")
+    
     lazy var feelSleepField: CustomTextField = {
        let textfield = CustomTextField()
         textfield.placeholder = "Fell Sleep"
@@ -41,31 +43,14 @@ class SleepViewController: UIViewController {
         return textfield
     }()
     
-    lazy var noteField: UITextField = {
-       let textView = UITextField()
-        textView.attributedPlaceholder = NSAttributedString(string: "Note")
-        textView.backgroundColor = #colorLiteral(red: 0.9490196109, green: 0.9490197301, blue: 0.9490196109, alpha: 1)
-        textView.leftView = UIView(frame: CGRect(x: 25, y: -20, width: 0, height: 0))
-        textView.textColor = #colorLiteral(red: 0.7372547984, green: 0.737255156, blue: 0.745862782, alpha: 1)
-        textView.font = .systemFont(ofSize: 14)
-        textView.layer.cornerRadius = 25
-        return textView
-    }()
+    private lazy var noteField = CustomNoteTextView()
 
     
-    lazy var saveButton: CustomButton = {
-        let button = CustomButton()
-        button.setTitle("Save", for: .normal)
-        button.setTitleColor(UIColor.white,for: .normal)
-        button.isEnabled = true
-        button.addTarget(self, action: #selector(tapedSaveButton), for: .touchUpInside)
-        return button
-    }()
+    lazy var saveButton = CustomButton(title: "Save")
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureNavigation()
         feedingSetupUI()
         hideKeyboardWhenTappedAround()
@@ -73,6 +58,7 @@ class SleepViewController: UIViewController {
     
     //MARK: - Actions
     func feedingSetupUI(){
+        saveButton.addTarget(self, action: #selector(tapedSaveButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubview(feelSleepField)
         feelSleepField.snp.makeConstraints { make in
@@ -88,7 +74,6 @@ class SleepViewController: UIViewController {
             make.left.equalToSuperview().offset(24)
             make.height.equalTo(60)
         }
-
         view.addSubview(noteField)
         noteField.snp.makeConstraints { make in
             make.top.equalTo(wokeUpField.snp.bottom).offset(32)
@@ -96,7 +81,6 @@ class SleepViewController: UIViewController {
             make.left.equalToSuperview().offset(24)
             make.height.equalTo(264)
         }
-        
         view.addSubview(saveButton)
         saveButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
@@ -104,7 +88,6 @@ class SleepViewController: UIViewController {
             make.left.equalToSuperview().offset(40)
             make.height.equalTo(saveButton.snp.width).multipliedBy(0.18)
         }
-
     }
     
     @objc func tapedSaveButton(){
@@ -112,17 +95,10 @@ class SleepViewController: UIViewController {
             let context = appDelegate.persistentContainer.viewContext
             let saveData = NSEntityDescription.insertNewObject(forEntityName: "Sleep", into: context)
             
-            //Save core data
             saveData.setValue(String(feelSleepField.text!), forKey: "fellSleep")
             saveData.setValue(String(wokeUpField.text!), forKey: "wokeUp")
             saveData.setValue(String(noteField.text!), forKey: "note")
-            
-            //saveData.setValue(UUID(), forKey: "id")
-            
-    //        if let ages = Int(ageTextField.text!){
-    //            saveData.setValue(ages, forKey: "age")
-    //        }
-            
+        
             do {
                 try context.save()
                 print("kaydedili karsimmmmm")
@@ -156,19 +132,6 @@ class SleepViewController: UIViewController {
     @objc func backButtonHome(){
         navigationController?.popViewController(animated: true)
     }
-    
-//    func textViewDidEndEditing (textView: UITextView) {
-//
-//        noteField.text = ""
-//        noteField.textColor = .white
-//
-//    }
-//    func textViewDidBeginEditing (textView: UITextView) {
-//        if noteField.text.isEmpty || noteField.text == "" {
-//            noteField.textColor = .lightGray
-//            noteField.text = ""
-//        }
-//    }
 }
 
 

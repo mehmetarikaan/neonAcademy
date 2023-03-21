@@ -37,8 +37,6 @@ class InAppVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         createdButtonUI()
-
-
     }
 
     @objc private func didTapSaleButton(){

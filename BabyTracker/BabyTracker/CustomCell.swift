@@ -38,14 +38,14 @@ class CustomCell: UITableViewCell {
     private let statusIcon: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.image = UIImage(named: "img_selected_diaperc")
+        image.image = UIImage(named: "img_selected_feeding")
         image.tintColor = .label
         return image
     }()
     private var statusTitle: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.29512766, green: 0.1368008852, blue: 0.7957670093, alpha: 1)
-        label.text = "mehmet"
+        label.text = "Feeding"
         label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textAlignment = .left
         return label
@@ -68,24 +68,30 @@ class CustomCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with statusTit: String, and timeLab: String){
+    public func configure(statusTit: String, timeLab: String, statusIcon: String){
         self.statusTitle.text = statusTit
         self.timeLabel.text = timeLab
+        self.statusIcon.image = UIImage(named: "\(statusIcon)")
     }
     
     private func setupCellUI(){
-        contentView.backgroundColor = #colorLiteral(red: 0.9529412389, green: 0.9529412389, blue: 0.9529412389, alpha: 1)
+        contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let conteiner = UIView()
+        conteiner.backgroundColor = #colorLiteral(red: 0.9529412389, green: 0.9529412389, blue: 0.9529412389, alpha: 1)
+        conteiner.layer.cornerRadius = 25
+        self.contentView.addSubview(conteiner)
+        
+        conteiner.snp.makeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(0.88)
+            make.width.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
         self.contentView.addSubview(calenderIcon)
         self.contentView.addSubview(lineImage)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(statusIcon)
         self.contentView.addSubview(statusTitle)
         self.contentView.addSubview(timeLabel)
-        
-//        let separator = UIView(frame: CGRectMake(0, 0, contentView.bounds.size.width, 1))
-//        separator.backgroundColor = UIColor.white
-//        self.contentView.addSubview(separator)
-        
         
         calenderIcon.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(14)

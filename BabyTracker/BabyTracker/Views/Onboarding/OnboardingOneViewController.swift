@@ -48,13 +48,9 @@ final class OnboardingOneViewController: UIViewController {
         image.image = UIImage(named: "slider1")
         return image
     }()
+
+    lazy var customButton = CustomButton(title: "Next")
     
-    lazy var customButton: CustomButton = {
-        let custom = CustomButton()
-        custom.setTitle("Next", for: .normal)
-        custom.addTarget(self, action: #selector(self.handleNextButton), for: .touchUpInside)
-        return custom
-    }()
    //MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +69,7 @@ final class OnboardingOneViewController: UIViewController {
     
     //MARK: - Helpers
     func setupUI(){
+        customButton.addTarget(self, action: #selector(self.handleNextButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubview(image)
         image.snp.makeConstraints { make in

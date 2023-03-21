@@ -5,24 +5,19 @@
 //  Created by Mehmet Arıkan on 16.03.2023.
 //
 
-//FIXME: - TableView Ekle - Custom Cell yaz
-//viewdidload'ta tek tek her özelliğin datasını core'dan çek
-
-
 import UIKit
 import SnapKit
 import CoreData
 
 class CalenderViewController: UIViewController {
-    
-    //viewdidload'ta tek tek her özelliğin datasını core'dan çek ve servis olarak ya da data tut
-    
+        
     //MARK: - Properties
     var homeData = HomeViewController()
     var feedingData = [String]()
     var allData = [String]()
     var diaperData = [String]()
     var sleepData = [String]()
+
     
     lazy var titleLabel: UILabel = {
         let title = UILabel()
@@ -30,44 +25,18 @@ class CalenderViewController: UIViewController {
         title.font = .systemFont(ofSize: 20, weight: .medium)
         return title
     }()
-    lazy var titleAllButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_all")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_all")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleAllButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
     
-    lazy var feedingButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_feeding")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_feeding")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleFeedingButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    lazy var diaperButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_diaperc")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_diaperc")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleDiaperButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    lazy var sleepButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "img_unselected_sleep")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.normal)
-        button.setImage(UIImage(named: "img_selected_sleep")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected)
-        button.addTarget(self, action: #selector(handleSleepButton), for: UIControl.Event.touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
+    private lazy var titleAllButton = CustomCalenderButton(normal: "img_unselected_all", selected: "img_selected_all")
+    private lazy var feedingButton = CustomCalenderButton(normal: "img_unselected_feeding", selected: "img_selected_feeding")
+    private lazy var diaperButton = CustomCalenderButton(normal: "img_unselected_diaperc", selected: "img_selected_diaperc")
+    private lazy var sleepButton = CustomCalenderButton(normal: "img_unselected_sleep", selected: "img_selected_sleep")
+
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.allowsSelection = true
         tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
-        tableView.rowHeight = 120
+        tableView.rowHeight = 133
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -87,7 +56,7 @@ class CalenderViewController: UIViewController {
     }
     
     func fetchAllData(){
-       
+        
     }
     func fetchFeedingData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -142,6 +111,11 @@ class CalenderViewController: UIViewController {
     }
     
     @objc func calenderSetupUI(){
+        titleAllButton.addTarget(self, action: #selector(handleAllButton), for: UIControl.Event.touchUpInside)
+        feedingButton.addTarget(self, action: #selector(handleFeedingButton), for: UIControl.Event.touchUpInside)
+        diaperButton.addTarget(self, action: #selector(handleDiaperButton), for: UIControl.Event.touchUpInside)
+        sleepButton.addTarget(self, action: #selector(handleSleepButton), for: UIControl.Event.touchUpInside)
+
         view.backgroundColor = .white
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
@@ -180,7 +154,6 @@ class CalenderViewController: UIViewController {
         
     }
     
-    // Selected method - func
     @objc func handleAllButton(){
         if titleAllButton.isSelected == true {
             titleAllButton.isSelected = false
@@ -197,12 +170,10 @@ class CalenderViewController: UIViewController {
         if feedingButton.isSelected == true {
             feedingButton.isSelected = false
         } else {
-            tableView.reloadData()
             feedingButton.isSelected = true
             titleAllButton.isSelected = false
             diaperButton.isSelected = false
             sleepButton.isSelected = false
-            fetchFeedingData()
         }
     }
     @objc func handleDiaperButton(){
@@ -259,14 +230,21 @@ extension CalenderViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.contentView.layer.cornerRadius = 25
         if sleepButton.isSelected {
-            cell.configure(with: homeData.profileNameLabel.text! , and: sleepData[indexPath.row])
+            DispatchQueue.main.async {
+                cell.configure(statusTit: "Sleep", timeLab: self.sleepData[indexPath.row], statusIcon: "img_selected_sleep")
+              
+            }
+        } else if feedingButton.isSelected {
+            DispatchQueue.main.async {
+                cell.configure(statusTit: "Feeding", timeLab: self.feedingData[indexPath.row], statusIcon: "img_selected_feeding")
+                
+            }
+        } else if diaperButton.isSelected {
+            DispatchQueue.main.async {
+                cell.configure(statusTit: "Diaper", timeLab: self.feedingData[indexPath.row], statusIcon: "img_selected_diaperc")
+            }
         }
-        if feedingButton.isSelected {
-            cell.configure(with: homeData.profileNameLabel.text! , and: feedingData[indexPath.row])
-        }
-        if diaperButton.isSelected {
-            cell.configure(with: homeData.profileNameLabel.text! , and: diaperData[indexPath.row])
-        }
+        
         //cell.configure(with: homeData.profileNameLabel.text! , and: feedingData[indexPath.row])
         return cell
     }

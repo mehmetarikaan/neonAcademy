@@ -98,14 +98,8 @@ final class EditViewController: UIViewController {
         datePickerTime.addTarget(self, action: #selector(valueChangedDueDateTextFieldPicker), for: .valueChanged)
         return textField
     }()
-    lazy var continueButton: CustomButton = {
-        let button = CustomButton()
-        button.setTitle("Save", for: .normal)
-        button.setTitleColor(UIColor.white,for: .normal)
-        button.isEnabled = true
-        button.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
-        return button
-    }()
+    lazy var continueButton = CustomButton(title: "Continue")
+    
     //MARK: - Lifeycle
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
@@ -121,6 +115,7 @@ final class EditViewController: UIViewController {
     }
     //MARK: - Helpers
     func setupLoginUI(){
+        continueButton.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubview(plusPhotoButton)
         plusPhotoButton.snp.makeConstraints { make in
